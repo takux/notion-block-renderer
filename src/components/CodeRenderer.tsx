@@ -1,12 +1,8 @@
 import { FC } from "react";
 import { annotationToClassName } from "../utils";
-import { Context } from "./NotionBlock";
+import { Context } from "../utils";
 import { useContext } from "react";
-
-type CodeProps = {
-  lang: string;
-  richTextArr: any;
-};
+import { CodeProps } from "../types";
 
 const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
   const { prefix } = useContext(Context);

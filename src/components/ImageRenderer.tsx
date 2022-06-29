@@ -1,15 +1,8 @@
 import { FC } from "react";
+import { FileProps } from "../types";
 
-// import { Context } from "./NotionBlock";
-// import { useContext } from "react";
-
-type ImageProps = {
-  url: string;
-};
-
-const ImageRenderer: FC<ImageProps> = ({ url }) => {
-  // const { prefix } = useContext(Context);
-  return <div>{url && <img src={url} />}</div>;
+const ImageRenderer: FC<FileProps> = ({ url }) => {
+  return <>{url && <img src={url} />}</>;
 };
 
 export default ImageRenderer;

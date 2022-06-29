@@ -1,23 +1,29 @@
 {
-  "name": "notion-block-mapper",
-  "version": "1.0.11",
+  "name": "notion-block-renderer",
+  "version": "1.2.2",
   "description": "",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "rm -r dist; tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/takux/notion-mapper.git"
+    "url": "git+https://github.com/takux/notion-block-renderer.git"
   },
   "author": "Takuma Fujimoto",
+  "keywords": [
+    "Notion",
+    "Notion API",
+    "React Notion",
+    "Notion block"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/takux/notion-mapper/issues"
+    "url": "https://github.com/takux/notion-block-renderer/issues"
   },
-  "homepage": "https://github.com/takux/notion-mapper#readme",
+  "homepage": "https://github.com/takux/notion-block-renderer#readme",
   "devDependencies": {
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
@@ -25,5 +31,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^4.7.4"
-  }
+  },
+  "files": [
+    "dist",
+    "src/styles.css"
+  ]
 }

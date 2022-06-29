@@ -57,6 +57,10 @@ export enum BlockEnum {
   //   link_to_page = "link_to_page",
   //   table = "table",
 }
+export enum BlockListEnum {
+  bulleted_list_item = BlockEnum.bulleted_list_item,
+  numbered_list_item = BlockEnum.numbered_list_item,
+}
 
 type TextBlockType = {
   color: string;
@@ -69,7 +73,7 @@ type CodeBlockType = {
   language: string;
 };
 
-type ImageBlockType = {
+type FileBlockType = {
   caption: RichTextType[];
   file: {
     expiry_time?: string;
@@ -77,6 +81,23 @@ type ImageBlockType = {
   };
   type: string;
 };
+
+type CalloutBlockType = {
+  color: string;
+  icon: {
+    emoji: string;
+  };
+  rich_text: RichTextType[];
+};
+
+// type ImageBlockType = {
+//   caption: RichTextType[];
+//   file: {
+//     expiry_time?: string;
+//     url: string;
+//   };
+//   type: string;
+// };
 
 export type BlockType = {
   id: string;
@@ -86,5 +107,45 @@ export type BlockType = {
   heading_2: TextBlockType;
   heading_3: TextBlockType;
   code: CodeBlockType;
-  image: ImageBlockType;
+  image: FileBlockType;
+  video: FileBlockType;
+  callout: CalloutBlockType;
+  quote: TextBlockType;
+  bulleted_list_item: TextBlockType;
+  numbered_list_item: TextBlockType;
+};
+
+export type BlockProps = {
+  block: BlockType;
+  prefix?: string;
+  blockPrefix?: string;
+  blocksPrefix?: string;
+  isNextJS?: boolean;
+};
+
+export type BlocksProps = Omit<BlockProps, "block"> & {
+  blocks: BlockType[];
+};
+
+export type TextProps = {
+  richTextArr: any;
+  isNextLink?: boolean;
+  isCaption?: boolean;
+};
+
+export type FileProps = {
+  url: string;
+};
+// export type ImageProps = {
+//   url: string;
+// };
+
+export type CodeProps = {
+  lang: string;
+  richTextArr: RichTextType[];
+};
+
+export type BlockListProps = {
+  blockType: string;
+  children: JSX.Element[];
 };

@@ -13,6 +13,12 @@
     "url": "git+https://github.com/takux/notion-block-renderer.git"
   },
   "author": "Takuma Fujimoto",
+  "keywords": [
+    "Notion",
+    "Notion API",
+    "React Notion",
+    "Notion block"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/takux/notion-block-renderer/issues"
@@ -25,5 +31,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^4.7.4"
-  }
+  },
+  "files": [
+    "dist",
+    "src/styles.css"
+  ]
 }

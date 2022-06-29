@@ -8,7 +8,7 @@ export const getBlocks = (blocks: BlockType[]) => {
   let components: JSX.Element[] = [];
   let blockArray = [];
 
-  for (const block of blocks) {
+  for (const [index, block] of blocks.entries()) {
     let isPreBlockList = Object.values(BlockListEnum).includes(preBlockType);
     let isCurrentBlockList = Object.values(BlockListEnum).includes(block.type);
 
@@ -22,10 +22,12 @@ export const getBlocks = (blocks: BlockType[]) => {
     if (isPreBlockList && !isCurrentBlockList) {
       // 1.
       components.push(
-        <BlockList blockType={preBlockType}>{blockArray}</BlockList>
+        <BlockList key={`${index}.1`} blockType={preBlockType}>
+          {blockArray}
+        </BlockList>
       );
       // 2.
-      components.push(<NotionBlockCore key={block.id} block={block} />);
+      components.push(<NotionBlockCore key={`${index}.2`} block={block} />);
       // 3.
       blockArray = [];
       // 4.
@@ -37,7 +39,7 @@ export const getBlocks = (blocks: BlockType[]) => {
      * list block is ongoing
      */
     if (isPreBlockList && isCurrentBlockList && block.type === preBlockType) {
-      blockArray.push(<NotionBlockCore key={block.id} block={block} />);
+      blockArray.push(<NotionBlockCore key={`${index}`} block={block} />);
       continue;
     }
 
@@ -45,7 +47,7 @@ export const getBlocks = (blocks: BlockType[]) => {
      * Start of blockListType
      */
     if (!isPreBlockList && isCurrentBlockList) {
-      blockArray.push(<NotionBlockCore key={block.id} block={block} />);
+      blockArray.push(<NotionBlockCore key={`${index}`} block={block} />);
       preBlockType = block.type;
       continue;
     }
@@ -60,12 +62,14 @@ export const getBlocks = (blocks: BlockType[]) => {
     if (isPreBlockList && isCurrentBlockList && block.type !== preBlockType) {
       // 1.
       components.push(
-        <BlockList blockType={preBlockType}>{blockArray}</BlockList>
+        <BlockList key={`${index}.1`} blockType={preBlockType}>
+          {blockArray}
+        </BlockList>
       );
       // 2.
       blockArray = [];
       // 3.
-      blockArray.push(<NotionBlockCore key={block.id} block={block} />);
+      blockArray.push(<NotionBlockCore key={`${index}.2`} block={block} />);
       // 4.
       preBlockType = block.type;
       continue;
@@ -76,7 +80,7 @@ export const getBlocks = (blocks: BlockType[]) => {
      * normal case.
      */
     if (!isPreBlockList && !isCurrentBlockList) {
-      components.push(<NotionBlockCore key={block.id} block={block} />);
+      components.push(<NotionBlockCore key={`${index}`} block={block} />);
       continue;
     }
 
@@ -84,7 +88,7 @@ export const getBlocks = (blocks: BlockType[]) => {
      * exception case
      */
     console.warn(`Exception case`, block);
-    components.push(<NotionBlockCore key={block.id} block={block} />);
+    components.push(<NotionBlockCore key={`${index}`} block={block} />);
   }
 
   return components;

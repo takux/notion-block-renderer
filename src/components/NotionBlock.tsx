@@ -78,14 +78,19 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
       /**
        * Currently this only uses <div> as well as <li>. There is no <ul>, and the specification is to decorate with 'list-style: initial;' and 'display: list-item;'.
        */
+      // return (
+      //   <div className={`${prefix}-${blockPrefix}-bulleted_list_item`}>
+      //     <ul>
+      //       <li>
+      //         <TextRenderer richTextArr={block[block.type].rich_text} />
+      //       </li>
+      //     </ul>
+      //   </div>
+      // );
       return (
-        <div className={`${prefix}-${blockPrefix}-bulleted_list_item`}>
-          <ul>
-            <li>
-              <TextRenderer richTextArr={block[block.type].rich_text} />
-            </li>
-          </ul>
-        </div>
+        <li className={`${prefix}-${blockPrefix}-bulleted_list_item`}>
+          <TextRenderer richTextArr={block[block.type].rich_text} />
+        </li>
       );
     // return (
     //   <div className={`${prefix}-${blockPrefix}-bulleted_list_item`}>
@@ -96,14 +101,19 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
     // );
     case BlockEnum.numbered_list_item:
       return (
-        <div className={`${prefix}-${blockPrefix}-numbered_list_item`}>
-          <ol>
-            <li>
-              <TextRenderer richTextArr={block[block.type].rich_text} />
-            </li>
-          </ol>
-        </div>
+        <li className={`${prefix}-${blockPrefix}-numbered_list_item`}>
+          <TextRenderer richTextArr={block[block.type].rich_text} />
+        </li>
       );
+    // return (
+    //   <div className={`${prefix}-${blockPrefix}-numbered_list_item`}>
+    //     <ol>
+    //       <li>
+    //         <TextRenderer richTextArr={block[block.type].rich_text} />
+    //       </li>
+    //     </ol>
+    //   </div>
+    // );
     // return (
     //   <div className={`${prefix}-${blockPrefix}-numbered_list_item`}>
     //     <div className={`default-numbered_list_item`}>

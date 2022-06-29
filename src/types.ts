@@ -57,6 +57,10 @@ export enum BlockEnum {
   //   link_to_page = "link_to_page",
   //   table = "table",
 }
+export enum BlockListEnum {
+  bulleted_list_item = BlockEnum.bulleted_list_item,
+  numbered_list_item = BlockEnum.numbered_list_item,
+}
 
 type TextBlockType = {
   color: string;
@@ -139,4 +143,9 @@ export type FileProps = {
 export type CodeProps = {
   lang: string;
   richTextArr: RichTextType[];
+};
+
+export type BlockListProps = {
+  blockType: string;
+  children: JSX.Element[];
 };

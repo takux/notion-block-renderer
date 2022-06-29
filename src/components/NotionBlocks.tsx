@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { BLOCKS_PREFIX, BLOCK_PREFIX, PREFIX } from "../config";
-import { BlocksProps, BlockType } from "../types";
+import { BlocksProps } from "../types";
 import { Context } from "../utils";
-import NotionBlockCore from "./NotionBlock";
+import { getBlocks } from "./BlockRenderer";
 
 const NotionBlocks: FC<BlocksProps> = ({
   blocks,
@@ -21,9 +21,14 @@ const NotionBlocks: FC<BlocksProps> = ({
       }}
     >
       <div className={`${prefix}-${BLOCKS_PREFIX}`}>
-        {blocks.map((block: BlockType, index: number) => (
-          <NotionBlockCore key={index} block={block} />
-        ))}
+        {getBlocks(blocks)}
+        {/* {blocks.map((block: BlockType, index: number) => {
+          getBlocks(blocks)
+
+          // set current blockType to preBlockType
+          preBlockType = block.type;
+          return <NotionBlockCore key={index} block={block} />;
+        })} */}
       </div>
     </Context.Provider>
   );

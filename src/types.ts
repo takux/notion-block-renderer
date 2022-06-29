@@ -69,6 +69,15 @@ type CodeBlockType = {
   language: string;
 };
 
+type ImageBlockType = {
+  caption: RichTextType[];
+  file: {
+    expiry_time?: string;
+    url: string;
+  };
+  type: string;
+};
+
 export type BlockType = {
   id: string;
   type: string;
@@ -77,6 +86,5 @@ export type BlockType = {
   heading_2: TextBlockType;
   heading_3: TextBlockType;
   code: CodeBlockType;
-
-  //   code: RichTextTypeWithCode;
+  image: ImageBlockType;
 };

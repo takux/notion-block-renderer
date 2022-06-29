@@ -2,56 +2,85 @@ import { FC, createContext } from "react";
 
 import { BlockEnum, BlockType } from "../types";
 import CodeRenderer from "./CodeRenderer";
+import ImageRenderer from "./ImageRenderer";
 import TextRenderer from "./TextRenderer";
 
-export const Prefix = createContext("nm");
+import { useContext } from "react";
+
+export const Context = createContext({
+  prefix: "nm",
+  isNextJS: true,
+});
 
 type BlockProps = {
   block: BlockType;
   prefix?: string;
+  isNextJS?: boolean;
 };
 
-const NotionBlock: FC<BlockProps> = ({ block, prefix = "nm" }) => {
+const NotionBlock: FC<BlockProps> = ({
+  block,
+  prefix = "nm",
+  isNextJS = true,
+}) => {
   return (
-    <Prefix.Provider value={prefix}>
+    <Context.Provider
+      value={{
+        prefix: prefix,
+        isNextJS: isNextJS,
+      }}
+    >
       <NotionBlockCore block={block} />
-    </Prefix.Provider>
+    </Context.Provider>
   );
 };
 
 const NotionBlockCore: FC<BlockProps> = ({ block }) => {
+  const { prefix } = useContext(Context);
   switch (block.type) {
     case BlockEnum.paragraph:
       if (block[block.type].rich_text.length > 0) {
         return (
-          <p>
+          <p className={`${prefix}-bl-p`}>
             <TextRenderer richTextArr={block[block.type].rich_text} />
           </p>
         );
       }
       return (
-        <p className="">
+        <p className={`${prefix}-bl-p`}>
           <br />
         </p>
       );
     case BlockEnum.heading_2:
       return (
-        <h2>
+        <h2 className={`${prefix}-bl-h2`}>
           <TextRenderer richTextArr={block[block.type].rich_text} />
         </h2>
       );
     case BlockEnum.heading_3:
       return (
-        <h3>
+        <h3 className={`${prefix}-bl-h3`}>
           <TextRenderer richTextArr={block[block.type].rich_text} />
         </h3>
       );
     case BlockEnum.code:
       return (
-        <CodeRenderer
-          lang={block[block.type].language}
-          richTextArr={block[block.type].rich_text}
-        />
+        <div className={`${prefix}-bl-code`}>
+          <CodeRenderer
+            lang={block[block.type].language}
+            richTextArr={block[block.type].rich_text}
+          />
+        </div>
+      );
+    case BlockEnum.image:
+      return (
+        <div className={`${prefix}-bl-image`}>
+          <ImageRenderer url={block[block.type].file.url} />
+          <TextRenderer
+            richTextArr={block[block.type].caption}
+            isCaption={true}
+          />
+        </div>
       );
     default:
       console.log(block.type);

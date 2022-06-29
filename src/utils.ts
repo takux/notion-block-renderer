@@ -12,5 +12,5 @@ export function annotationToClassName(
   if (annotations.underline) classNames.push(`${prefix}-underline`);
   if (annotations.color !== "default")
     classNames.push(`${prefix}-color-${annotations.color}`);
-  return ` ${classNames.join(" ")} `;
+  return classNames.join(" ");
 }

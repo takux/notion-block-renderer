@@ -80,11 +80,20 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
        */
       return (
         <div className={`${prefix}-${blockPrefix}-bulleted_list_item`}>
-          <div className={`default-bulleted_list_item`}>
-            <TextRenderer richTextArr={block[block.type].rich_text} />
-          </div>
+          <ul>
+            <li>
+              <TextRenderer richTextArr={block[block.type].rich_text} />
+            </li>
+          </ul>
         </div>
       );
+    // return (
+    //   <div className={`${prefix}-${blockPrefix}-bulleted_list_item`}>
+    //     <div className={`default-bulleted_list_item`}>
+    //       <TextRenderer richTextArr={block[block.type].rich_text} />
+    //     </div>
+    //   </div>
+    // );
     case BlockEnum.numbered_list_item:
       return (
         <div className={`${prefix}-${blockPrefix}-numbered_list_item`}>

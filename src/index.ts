@@ -1,4 +1,4 @@
-import "./styles.css";
+// import "./styles.css";
 import NotionBlock from "./components/NotionBlock";
 
 export * from "./types";

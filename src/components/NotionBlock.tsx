@@ -73,6 +73,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
         </div>
       );
     case BlockEnum.image:
+      console.log("呼ばれました", block);
       return (
         <div key={block.id} className={`${prefix}-bl-image`}>
           <ImageRenderer url={block[block.type].file.url} />

@@ -74,7 +74,8 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
           />
         </div>
       );
-    case BlockEnum.image:
+    // case BlockEnum.image:
+    case "image":
       console.log("呼ばれました", 123, block);
       return (
         <div className={`${prefix}-bl-image`}>

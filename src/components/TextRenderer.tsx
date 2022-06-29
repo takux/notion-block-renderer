@@ -25,7 +25,8 @@ const TextRenderer: FC<TextProps> = ({
               <a className={className}>{richText.text.content}</a>
             </Link>
           );
-        } else if (richText.href) {
+        }
+        if (richText.href) {
           return (
             <a key={index} href={richText.href} className={className}>
               {richText.text.content}

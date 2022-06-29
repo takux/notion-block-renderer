@@ -1,3 +1,5 @@
+import { createContext } from "react";
+import { BLOCKS_PREFIX, BLOCK_PREFIX, PREFIX } from "./config";
 import { AnnotationType } from "./types";
 
 export function annotationToClassName(
@@ -14,3 +16,10 @@ export function annotationToClassName(
     classNames.push(`${prefix}-color-${annotations.color}`);
   return classNames.join(" ");
 }
+
+export const Context = createContext({
+  prefix: PREFIX,
+  isNextJS: true,
+  blockPrefix: BLOCK_PREFIX,
+  blocksPrefix: BLOCKS_PREFIX,
+});

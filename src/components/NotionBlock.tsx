@@ -1,26 +1,17 @@
-import { FC, createContext } from "react";
-
-import { BlockEnum, BlockType } from "../types";
+import { FC } from "react";
+import { BlockEnum, BlockProps } from "../types";
 import CodeRenderer from "./CodeRenderer";
 import ImageRenderer from "./ImageRenderer";
 import TextRenderer from "./TextRenderer";
-
 import { useContext } from "react";
+import { BLOCKS_PREFIX, BLOCK_PREFIX, PREFIX } from "../config";
+import { Context } from "../utils";
 
-export const Context = createContext({
-  prefix: "nbr",
-  isNextJS: true,
-});
-
-type BlockProps = {
-  block: BlockType;
-  prefix?: string;
-  isNextJS?: boolean;
-};
-
-const NotionBlock: FC<BlockProps> = ({
+export const NotionBlock: FC<BlockProps> = ({
   block,
-  prefix = "nbr",
+  prefix = PREFIX,
+  blockPrefix = BLOCK_PREFIX,
+  blocksPrefix = BLOCKS_PREFIX,
   isNextJS = true,
 }) => {
   return (
@@ -29,6 +20,8 @@ const NotionBlock: FC<BlockProps> = ({
       value={{
         prefix: prefix,
         isNextJS: isNextJS,
+        blockPrefix: blockPrefix,
+        blocksPrefix: blocksPrefix,
       }}
     >
       <NotionBlockCore block={block} />
@@ -42,32 +35,31 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
     case BlockEnum.paragraph:
       if (block[block.type].rich_text.length > 0) {
         return (
-          <p className={`${prefix}-bl-p`}>
+          <p className={`${prefix}-${BLOCK_PREFIX}-p`}>
             <TextRenderer richTextArr={block[block.type].rich_text} />
           </p>
         );
       }
       return (
-        <p className={`${prefix}-bl-p`}>
+        <p className={`${prefix}-${BLOCK_PREFIX}-p`}>
           <br />
         </p>
       );
     case BlockEnum.heading_2:
       return (
-        // className={isCaption ? `${prefix}-caption` : `${prefix}-text`}
-        <h2 className={`${prefix}-bl-h2`}>
+        <h2 className={`${prefix}-${BLOCK_PREFIX}-h2`}>
           <TextRenderer richTextArr={block[block.type].rich_text} />
         </h2>
       );
     case BlockEnum.heading_3:
       return (
-        <h3 className={`${prefix}-bl-h3`}>
+        <h3 className={`${prefix}-${BLOCK_PREFIX}-h3`}>
           <TextRenderer richTextArr={block[block.type].rich_text} />
         </h3>
       );
     case BlockEnum.code:
       return (
-        <div className={`${prefix}-bl-code`}>
+        <div className={`${prefix}-${BLOCK_PREFIX}-code`}>
           <CodeRenderer
             lang={block[block.type].language}
             richTextArr={block[block.type].rich_text}
@@ -76,7 +68,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
       );
     case BlockEnum.image:
       return (
-        <div className={`${prefix}-bl-image`}>
+        <div className={`${prefix}-${BLOCK_PREFIX}-image`}>
           <ImageRenderer url={block[block.type].file.url} />
           <div className={`${prefix}-caption`}>
             <TextRenderer richTextArr={block[block.type].caption} />

@@ -88,3 +88,30 @@ export type BlockType = {
   code: CodeBlockType;
   image: ImageBlockType;
 };
+
+export type BlockProps = {
+  block: BlockType;
+  prefix?: string;
+  blockPrefix?: string;
+  blocksPrefix?: string;
+  isNextJS?: boolean;
+};
+
+export type BlocksProps = Omit<BlockProps, "block"> & {
+  blocks: BlockType[];
+};
+
+export type TextProps = {
+  richTextArr: any;
+  isNextLink?: boolean;
+  isCaption?: boolean;
+};
+
+export type ImageProps = {
+  url: string;
+};
+
+export type CodeProps = {
+  lang: string;
+  richTextArr: RichTextType[];
+};

@@ -17,22 +17,26 @@ const TextRenderer: FC<TextProps> = ({
   const { prefix } = useContext(Context);
   return (
     <div className={isCaption ? `${prefix}-caption` : `${prefix}-text`}>
-      {richTextArr.map((richText: any) => {
+      {richTextArr.map((richText: any, index: number) => {
         const className = annotationToClassName(richText.annotations, prefix);
         if (richText.href && isNextLink) {
           return (
-            <Link href={richText.href}>
+            <Link key={index} href={richText.href}>
               <a className={className}>{richText.text.content}</a>
             </Link>
           );
         } else if (richText.href) {
           return (
-            <a href={richText.href} className={className}>
+            <a key={index} href={richText.href} className={className}>
               {richText.text.content}
             </a>
           );
         }
-        return <span className={className}>{richText.text.content}</span>;
+        return (
+          <span key={index} className={className}>
+            {richText.text.content}
+          </span>
+        );
       })}
     </div>
   );

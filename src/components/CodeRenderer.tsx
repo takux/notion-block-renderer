@@ -13,9 +13,13 @@ const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
   return (
     <pre>
       <code className={`language-${lang}`}>
-        {richTextArr.map((richText: any) => {
+        {richTextArr.map((richText: any, index: number) => {
           const className = annotationToClassName(richText.annotations, prefix);
-          return <span className={className}>{richText.text.content}</span>;
+          return (
+            <span key={index} className={className}>
+              {richText.text.content}
+            </span>
+          );
         })}
       </code>
     </pre>

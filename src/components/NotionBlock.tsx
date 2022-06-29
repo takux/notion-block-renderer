@@ -41,31 +41,31 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
     case BlockEnum.paragraph:
       if (block[block.type].rich_text.length > 0) {
         return (
-          <p className={`${prefix}-bl-p`}>
+          <p key={block.id} className={`${prefix}-bl-p`}>
             <TextRenderer richTextArr={block[block.type].rich_text} />
           </p>
         );
       }
       return (
-        <p className={`${prefix}-bl-p`}>
+        <p key={block.id} className={`${prefix}-bl-p`}>
           <br />
         </p>
       );
     case BlockEnum.heading_2:
       return (
-        <h2 className={`${prefix}-bl-h2`}>
+        <h2 key={block.id} className={`${prefix}-bl-h2`}>
           <TextRenderer richTextArr={block[block.type].rich_text} />
         </h2>
       );
     case BlockEnum.heading_3:
       return (
-        <h3 className={`${prefix}-bl-h3`}>
+        <h3 key={block.id} className={`${prefix}-bl-h3`}>
           <TextRenderer richTextArr={block[block.type].rich_text} />
         </h3>
       );
     case BlockEnum.code:
       return (
-        <div className={`${prefix}-bl-code`}>
+        <div key={block.id} className={`${prefix}-bl-code`}>
           <CodeRenderer
             lang={block[block.type].language}
             richTextArr={block[block.type].rich_text}
@@ -74,7 +74,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
       );
     case BlockEnum.image:
       return (
-        <div className={`${prefix}-bl-image`}>
+        <div key={block.id} className={`${prefix}-bl-image`}>
           <ImageRenderer url={block[block.type].file.url} />
           <TextRenderer
             richTextArr={block[block.type].caption}

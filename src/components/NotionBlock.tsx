@@ -37,6 +37,7 @@ const NotionBlock: FC<BlockProps> = ({
 };
 
 const NotionBlockCore: FC<BlockProps> = ({ block }) => {
+  console.log("呼ばれました", 999);
   const { prefix } = useContext(Context);
   switch (block.type) {
     case BlockEnum.paragraph:
@@ -74,7 +75,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
         </div>
       );
     case BlockEnum.image:
-      console.log("呼ばれました", block);
+      console.log("呼ばれました", 123, block);
       return (
         <div className={`${prefix}-bl-image`}>
           <ImageRenderer url={block[block.type].file.url} />

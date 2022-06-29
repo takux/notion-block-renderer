@@ -37,7 +37,6 @@ const NotionBlock: FC<BlockProps> = ({
 };
 
 const NotionBlockCore: FC<BlockProps> = ({ block }) => {
-  console.log("呼ばれました", 999);
   const { prefix } = useContext(Context);
   switch (block.type) {
     case BlockEnum.paragraph:

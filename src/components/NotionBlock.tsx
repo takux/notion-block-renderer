@@ -97,11 +97,21 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
     case BlockEnum.numbered_list_item:
       return (
         <div className={`${prefix}-${blockPrefix}-numbered_list_item`}>
-          <div className={`default-numbered_list_item`}>
-            <TextRenderer richTextArr={block[block.type].rich_text} />
-          </div>
+          <ol>
+            <li>
+              <TextRenderer richTextArr={block[block.type].rich_text} />
+            </li>
+          </ol>
         </div>
       );
+    // return (
+    //   <div className={`${prefix}-${blockPrefix}-numbered_list_item`}>
+    //     <div className={`default-numbered_list_item`}>
+    //       <TextRenderer richTextArr={block[block.type].rich_text} />
+    //     </div>
+    //   </div>
+    // );
+
     case BlockEnum.quote:
       return (
         <div className={`${prefix}-${blockPrefix}-quote`}>

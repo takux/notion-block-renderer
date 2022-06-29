@@ -8,7 +8,7 @@ import TextRenderer from "./TextRenderer";
 import { useContext } from "react";
 
 export const Context = createContext({
-  prefix: "nm",
+  prefix: "nbr",
   isNextJS: true,
 });
 
@@ -20,7 +20,7 @@ type BlockProps = {
 
 const NotionBlock: FC<BlockProps> = ({
   block,
-  prefix = "nm",
+  prefix = "nbr",
   isNextJS = true,
 }) => {
   return (

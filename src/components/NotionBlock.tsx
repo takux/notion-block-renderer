@@ -4,8 +4,9 @@ import CodeRenderer from "./CodeRenderer";
 import ImageRenderer from "./ImageRenderer";
 import TextRenderer from "./TextRenderer";
 import { useContext } from "react";
-import { BLOCKS_PREFIX, BLOCK_PREFIX, PREFIX } from "../config";
+import { BLOCKS_PREFIX, BLOCK_PREFIX, PACKAGE_NAME, PREFIX } from "../config";
 import { Context } from "../utils";
+import VideoRenderer from "./VideoRenderer";
 
 export const NotionBlock: FC<BlockProps> = ({
   block,
@@ -19,9 +20,9 @@ export const NotionBlock: FC<BlockProps> = ({
       key={block.id}
       value={{
         prefix: prefix,
-        isNextJS: isNextJS,
         blockPrefix: blockPrefix,
         blocksPrefix: blocksPrefix,
+        isNextJS: isNextJS,
       }}
     >
       <NotionBlockCore block={block} />
@@ -30,36 +31,90 @@ export const NotionBlock: FC<BlockProps> = ({
 };
 
 const NotionBlockCore: FC<BlockProps> = ({ block }) => {
-  const { prefix } = useContext(Context);
+  const { prefix, blockPrefix } = useContext(Context);
   switch (block.type) {
     case BlockEnum.paragraph:
       if (block[block.type].rich_text.length > 0) {
         return (
-          <p className={`${prefix}-${BLOCK_PREFIX}-p`}>
-            <TextRenderer richTextArr={block[block.type].rich_text} />
-          </p>
+          <div className={`${prefix}-${blockPrefix}-p`}>
+            <p>
+              <TextRenderer richTextArr={block[block.type].rich_text} />
+            </p>
+          </div>
         );
       }
       return (
-        <p className={`${prefix}-${BLOCK_PREFIX}-p`}>
-          <br />
-        </p>
+        <div className={`${prefix}-${blockPrefix}-p`}>
+          <p>
+            <br />
+          </p>
+        </div>
+      );
+    case BlockEnum.heading_1:
+      return (
+        <div className={`${prefix}-${blockPrefix}-h1`}>
+          <h1>
+            <TextRenderer richTextArr={block[block.type].rich_text} />
+          </h1>
+        </div>
       );
     case BlockEnum.heading_2:
       return (
-        <h2 className={`${prefix}-${BLOCK_PREFIX}-h2`}>
-          <TextRenderer richTextArr={block[block.type].rich_text} />
-        </h2>
+        <div className={`${prefix}-${blockPrefix}-h2`}>
+          <h2>
+            <TextRenderer richTextArr={block[block.type].rich_text} />
+          </h2>
+        </div>
       );
     case BlockEnum.heading_3:
       return (
-        <h3 className={`${prefix}-${BLOCK_PREFIX}-h3`}>
-          <TextRenderer richTextArr={block[block.type].rich_text} />
-        </h3>
+        <div className={`${prefix}-${blockPrefix}-h3`}>
+          <h3>
+            <TextRenderer richTextArr={block[block.type].rich_text} />
+          </h3>
+        </div>
+      );
+    case BlockEnum.bulleted_list_item:
+      /**
+       * Currently this only uses <div> as well as <li>. There is no <ul>, and the specification is to decorate with 'list-style: initial;' and 'display: list-item;'.
+       */
+      return (
+        <div className={`${prefix}-${blockPrefix}-bulleted_list_item`}>
+          <div className={`default-bulleted_list_item`}>
+            <TextRenderer richTextArr={block[block.type].rich_text} />
+          </div>
+        </div>
+      );
+    case BlockEnum.numbered_list_item:
+      return (
+        <div className={`${prefix}-${blockPrefix}-numbered_list_item`}>
+          <div className={`default-numbered_list_item`}>
+            <TextRenderer richTextArr={block[block.type].rich_text} />
+          </div>
+        </div>
+      );
+    case BlockEnum.quote:
+      return (
+        <div className={`${prefix}-${blockPrefix}-quote`}>
+          <div>
+            <TextRenderer richTextArr={block[block.type].rich_text} />
+          </div>
+        </div>
+      );
+    case BlockEnum.callout:
+      return (
+        <div className={`${prefix}-${blockPrefix}-callout`}>
+          <div>
+            <span className={`${prefix}-icon`}>
+              {block[block.type].icon.emoji}
+            </span>
+            <TextRenderer richTextArr={block[block.type].rich_text} />
+          </div>
+        </div>
       );
     case BlockEnum.code:
       return (
-        <div className={`${prefix}-${BLOCK_PREFIX}-code`}>
+        <div className={`${prefix}-${blockPrefix}-code`}>
           <CodeRenderer
             lang={block[block.type].language}
             richTextArr={block[block.type].rich_text}
@@ -68,15 +123,30 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
       );
     case BlockEnum.image:
       return (
-        <div className={`${prefix}-${BLOCK_PREFIX}-image`}>
-          <ImageRenderer url={block[block.type].file.url} />
+        <div className={`${prefix}-${blockPrefix}-image`}>
+          <div>
+            <ImageRenderer url={block[block.type].file.url} />
+          </div>
+          <div className={`${prefix}-caption`}>
+            <TextRenderer richTextArr={block[block.type].caption} />
+          </div>
+        </div>
+      );
+    case BlockEnum.video:
+      return (
+        <div className={`${prefix}-${blockPrefix}-video`}>
+          <div>
+            <VideoRenderer url={block[block.type].file.url} />
+          </div>
           <div className={`${prefix}-caption`}>
             <TextRenderer richTextArr={block[block.type].caption} />
           </div>
         </div>
       );
     default:
-      console.log(block.type);
+      console.log(
+        `This '${block.type}' type not yet configured in ${PACKAGE_NAME}`
+      );
   }
   return <></>;
 };

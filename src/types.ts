@@ -69,7 +69,7 @@ type CodeBlockType = {
   language: string;
 };
 
-type ImageBlockType = {
+type FileBlockType = {
   caption: RichTextType[];
   file: {
     expiry_time?: string;
@@ -77,6 +77,23 @@ type ImageBlockType = {
   };
   type: string;
 };
+
+type CalloutBlockType = {
+  color: string;
+  icon: {
+    emoji: string;
+  };
+  rich_text: RichTextType[];
+};
+
+// type ImageBlockType = {
+//   caption: RichTextType[];
+//   file: {
+//     expiry_time?: string;
+//     url: string;
+//   };
+//   type: string;
+// };
 
 export type BlockType = {
   id: string;
@@ -86,7 +103,12 @@ export type BlockType = {
   heading_2: TextBlockType;
   heading_3: TextBlockType;
   code: CodeBlockType;
-  image: ImageBlockType;
+  image: FileBlockType;
+  video: FileBlockType;
+  callout: CalloutBlockType;
+  quote: TextBlockType;
+  bulleted_list_item: TextBlockType;
+  numbered_list_item: TextBlockType;
 };
 
 export type BlockProps = {
@@ -107,9 +129,12 @@ export type TextProps = {
   isCaption?: boolean;
 };
 
-export type ImageProps = {
+export type FileProps = {
   url: string;
 };
+// export type ImageProps = {
+//   url: string;
+// };
 
 export type CodeProps = {
   lang: string;

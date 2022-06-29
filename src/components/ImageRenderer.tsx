@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { ImageProps } from "../types";
+import { FileProps } from "../types";
 
-const ImageRenderer: FC<ImageProps> = ({ url }) => {
-  return <div>{url && <img src={url} />}</div>;
+const ImageRenderer: FC<FileProps> = ({ url }) => {
+  return <>{url && <img src={url} />}</>;
 };
 
 export default ImageRenderer;

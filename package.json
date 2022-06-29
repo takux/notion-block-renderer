@@ -1,5 +1,5 @@
 {
-  "name": "notion-block-mapper",
+  "name": "notion-block-renderer",
   "version": "1.0.11",
   "description": "",
   "main": "dist/index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/takux/notion-mapper.git"
+    "url": "git+https://github.com/takux/notion-block-renderer.git"
   },
   "author": "Takuma Fujimoto",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/takux/notion-mapper/issues"
+    "url": "https://github.com/takux/notion-block-renderer/issues"
   },
-  "homepage": "https://github.com/takux/notion-mapper#readme",
+  "homepage": "https://github.com/takux/notion-block-renderer#readme",
   "devDependencies": {
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",

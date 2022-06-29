@@ -9,14 +9,10 @@ type TextProps = {
   isCaption?: boolean;
 };
 
-const TextRenderer: FC<TextProps> = ({
-  richTextArr,
-  isNextLink = true,
-  isCaption = false,
-}) => {
+const TextRenderer: FC<TextProps> = ({ richTextArr, isNextLink = true }) => {
   const { prefix } = useContext(Context);
   return (
-    <div className={isCaption ? `${prefix}-caption` : `${prefix}-text`}>
+    <>
       {richTextArr.map((richText: any, index: number) => {
         const className = annotationToClassName(richText.annotations, prefix);
         if (richText.href && isNextLink) {
@@ -39,7 +35,7 @@ const TextRenderer: FC<TextProps> = ({
           </span>
         );
       })}
-    </div>
+    </>
   );
 };
 export default TextRenderer;

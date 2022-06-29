@@ -55,6 +55,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
       );
     case BlockEnum.heading_2:
       return (
+        // className={isCaption ? `${prefix}-caption` : `${prefix}-text`}
         <h2 className={`${prefix}-bl-h2`}>
           <TextRenderer richTextArr={block[block.type].rich_text} />
         </h2>
@@ -74,16 +75,13 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
           />
         </div>
       );
-    // case BlockEnum.image:
-    case "image":
-      console.log("呼ばれました", 123, block);
+    case BlockEnum.image:
       return (
         <div className={`${prefix}-bl-image`}>
           <ImageRenderer url={block[block.type].file.url} />
-          <TextRenderer
-            richTextArr={block[block.type].caption}
-            isCaption={true}
-          />
+          <div className={`${prefix}-caption`}>
+            <TextRenderer richTextArr={block[block.type].caption} />
+          </div>
         </div>
       );
     default:

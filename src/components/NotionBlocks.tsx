@@ -17,6 +17,7 @@ const NotionBlocks: FC<BlocksProps> = ({
   isNextJS = true,
   isCodeHighlighter = CODE_HIGHLIGHTER,
 }) => {
+  console.log(5555, isCodeHighlighter);
   return (
     <Context.Provider
       value={{

@@ -1,7 +1,7 @@
 // import { FC } from "react";
 import { BlockListEnum, BlockType } from "../types";
 import BlockList from "./BlockList";
-import NotionBlockCore from "./NotionBlock";
+import NotionBlockCore from "./NotionBlockCore";
 
 export const getBlocks = (blocks: BlockType[]) => {
   let preBlockType = "";

@@ -22,13 +22,14 @@ const NotionBlocks: FC<BlocksProps> = ({
   return (
     <Context.Provider
       value={{
-        prefix: prefix ? prefix : PREFIX,
-        blockPrefix: blockPrefix ? blockPrefix : BLOCK_PREFIX,
-        blocksPrefix: blocksPrefix ? blocksPrefix : BLOCKS_PREFIX,
-        isNextJS: isNextJS ? isNextJS : IS_NEXTJS,
-        isCodeHighlighter: isCodeHighlighter
-          ? isCodeHighlighter
-          : IS_CODE_HIGHLIGHTER,
+        prefix: prefix !== undefined ? prefix : PREFIX,
+        blockPrefix: blockPrefix !== undefined ? blockPrefix : BLOCK_PREFIX,
+        blocksPrefix: blocksPrefix !== undefined ? blocksPrefix : BLOCKS_PREFIX,
+        isNextJS: isNextJS !== undefined ? isNextJS : IS_NEXTJS,
+        isCodeHighlighter:
+          isCodeHighlighter !== undefined
+            ? isCodeHighlighter
+            : IS_CODE_HIGHLIGHTER,
       }}
     >
       <div className={`${prefix}-${BLOCKS_PREFIX}`}>

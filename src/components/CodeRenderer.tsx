@@ -30,6 +30,7 @@ const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
       </div>
     );
   }
+  console.log(2222222, isCodeHighlighter);
 
   return (
     <pre>

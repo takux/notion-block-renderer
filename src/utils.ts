@@ -2,7 +2,8 @@ import { createContext } from "react";
 import {
   BLOCKS_PREFIX,
   BLOCK_PREFIX,
-  CODE_HIGHLIGHTER,
+  IS_CODE_HIGHLIGHTER,
+  IS_NEXTJS,
   PREFIX,
 } from "./config";
 import { AnnotationType } from "./types";
@@ -24,8 +25,8 @@ export function annotationToClassName(
 
 export const Context = createContext({
   prefix: PREFIX,
-  isNextJS: true,
+  isNextJS: IS_NEXTJS,
   blockPrefix: BLOCK_PREFIX,
   blocksPrefix: BLOCKS_PREFIX,
-  isCodeHighlighter: CODE_HIGHLIGHTER,
+  isCodeHighlighter: IS_CODE_HIGHLIGHTER,
 });

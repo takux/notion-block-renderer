@@ -15,7 +15,6 @@ const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
   const { prefix, isCodeHighlighter } = useContext(Context);
 
   if (isCodeHighlighter) {
-    console.log(44445555, isCodeHighlighter);
     return (
       <div className={`language-${lang}`}>
         <SyntaxHighlighter
@@ -30,7 +29,6 @@ const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
       </div>
     );
   }
-  console.log(2222222, isCodeHighlighter);
 
   return (
     <pre>

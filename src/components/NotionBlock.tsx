@@ -7,7 +7,8 @@ import { useContext } from "react";
 import {
   BLOCKS_PREFIX,
   BLOCK_PREFIX,
-  CODE_HIGHLIGHTER,
+  IS_CODE_HIGHLIGHTER,
+  IS_NEXTJS,
   PACKAGE_NAME,
   PREFIX,
 } from "../config";
@@ -16,21 +17,23 @@ import VideoRenderer from "./VideoRenderer";
 
 export const NotionBlock: FC<BlockProps> = ({
   block,
-  prefix = PREFIX,
-  blockPrefix = BLOCK_PREFIX,
-  blocksPrefix = BLOCKS_PREFIX,
-  isNextJS = true,
-  isCodeHighlighter = CODE_HIGHLIGHTER,
+  prefix,
+  blockPrefix,
+  blocksPrefix,
+  isNextJS,
+  isCodeHighlighter,
 }) => {
   return (
     <Context.Provider
       key={block.id}
       value={{
-        prefix: prefix,
-        blockPrefix: blockPrefix,
-        blocksPrefix: blocksPrefix,
-        isNextJS: isNextJS,
-        isCodeHighlighter: isCodeHighlighter,
+        prefix: prefix ? prefix : PREFIX,
+        blockPrefix: blockPrefix ? blockPrefix : BLOCK_PREFIX,
+        blocksPrefix: blocksPrefix ? blocksPrefix : BLOCKS_PREFIX,
+        isNextJS: isNextJS ? isNextJS : IS_NEXTJS,
+        isCodeHighlighter: isCodeHighlighter
+          ? isCodeHighlighter
+          : IS_CODE_HIGHLIGHTER,
       }}
     >
       <NotionBlockCore block={block} />

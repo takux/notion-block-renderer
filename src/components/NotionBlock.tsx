@@ -4,7 +4,13 @@ import CodeRenderer from "./CodeRenderer";
 import ImageRenderer from "./ImageRenderer";
 import TextRenderer from "./TextRenderer";
 import { useContext } from "react";
-import { BLOCKS_PREFIX, BLOCK_PREFIX, PACKAGE_NAME, PREFIX } from "../config";
+import {
+  BLOCKS_PREFIX,
+  BLOCK_PREFIX,
+  CODE_HIGHLIGHTER,
+  PACKAGE_NAME,
+  PREFIX,
+} from "../config";
 import { Context } from "../utils";
 import VideoRenderer from "./VideoRenderer";
 
@@ -14,6 +20,7 @@ export const NotionBlock: FC<BlockProps> = ({
   blockPrefix = BLOCK_PREFIX,
   blocksPrefix = BLOCKS_PREFIX,
   isNextJS = true,
+  isCodeHighlighter = CODE_HIGHLIGHTER,
 }) => {
   return (
     <Context.Provider
@@ -23,6 +30,7 @@ export const NotionBlock: FC<BlockProps> = ({
         blockPrefix: blockPrefix,
         blocksPrefix: blocksPrefix,
         isNextJS: isNextJS,
+        isCodeHighlighter: isCodeHighlighter,
       }}
     >
       <NotionBlockCore block={block} />

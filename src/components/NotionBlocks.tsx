@@ -1,5 +1,10 @@
 import { FC } from "react";
-import { BLOCKS_PREFIX, BLOCK_PREFIX, PREFIX } from "../config";
+import {
+  BLOCKS_PREFIX,
+  BLOCK_PREFIX,
+  CODE_HIGHLIGHTER,
+  PREFIX,
+} from "../config";
 import { BlocksProps } from "../types";
 import { Context } from "../utils";
 import { getBlocks } from "./BlockRenderer";
@@ -10,6 +15,7 @@ const NotionBlocks: FC<BlocksProps> = ({
   blockPrefix = BLOCK_PREFIX,
   blocksPrefix = BLOCKS_PREFIX,
   isNextJS = true,
+  isCodeHighlighter = CODE_HIGHLIGHTER,
 }) => {
   return (
     <Context.Provider
@@ -18,6 +24,7 @@ const NotionBlocks: FC<BlocksProps> = ({
         isNextJS: isNextJS,
         blockPrefix: blockPrefix,
         blocksPrefix: blocksPrefix,
+        isCodeHighlighter: isCodeHighlighter,
       }}
     >
       <div className={`${prefix}-${BLOCKS_PREFIX}`}>

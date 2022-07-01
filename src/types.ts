@@ -121,6 +121,7 @@ export type BlockProps = {
   blockPrefix?: string;
   blocksPrefix?: string;
   isNextJS?: boolean;
+  isCodeHighlighter?: boolean;
 };
 
 export type BlocksProps = Omit<BlockProps, "block"> & {

@@ -2,10 +2,34 @@ import { FC } from "react";
 import { annotationToClassName } from "../utils";
 import { Context } from "../utils";
 import { useContext } from "react";
-import { CodeProps } from "../types";
+import { CodeProps, RichTextType } from "../types";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import {
+  monokaiSublime,
+  irBlack,
+  tomorrowNightBright,
+  monokai,
+} from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
-  const { prefix } = useContext(Context);
+  const { prefix, isCodeHighlighter } = useContext(Context);
+
+  if (isCodeHighlighter) {
+    return (
+      <div className={`language-${lang}`}>
+        <SyntaxHighlighter
+          language={lang}
+          style={tomorrowNightBright}
+          className="rounded-lg"
+          customStyle={{ padding: "1rem" }}
+          // showLineNumbers={true}
+        >
+          {getJoinedText(richTextArr)}
+        </SyntaxHighlighter>
+      </div>
+    );
+  }
+
   return (
     <pre>
       <code className={`language-${lang}`}>
@@ -21,4 +45,17 @@ const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
     </pre>
   );
 };
+
 export default CodeRenderer;
+
+/**
+ *
+ * @param richTextArr
+ * @returns
+ */
+const getJoinedText = (richTextArr: RichTextType[]): string => {
+  const textArr = richTextArr.map(
+    (richText: any, index: number) => richText.text.content
+  );
+  return textArr.join("");
+};

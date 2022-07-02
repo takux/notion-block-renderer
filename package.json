@@ -17,10 +17,13 @@
   },
   "author": "Takuma Fujimoto",
   "keywords": [
-    "Notion",
-    "Notion API",
-    "React Notion",
-    "Notion block"
+    "notion",
+    "react",
+    "nextjs",
+    "block",
+    "api",
+    "renderer",
+    "mapper"
   ],
   "license": "MIT",
   "bugs": {

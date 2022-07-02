@@ -30,8 +30,21 @@ const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
       </div>
     );
   }
-
   console.log(2222, isCodeHighlighter);
+  return (
+    <div className={`language-${lang} syntax-highlighter`}>
+      <SyntaxHighlighter
+        language={lang}
+        style={tomorrowNightBright}
+        className="rounded-lg"
+        customStyle={{ padding: "1rem" }}
+        // showLineNumbers={true}
+      >
+        {getJoinedText(richTextArr)}
+      </SyntaxHighlighter>
+    </div>
+  );
+
   return (
     <pre>
       <code className={`language-${lang}`}>

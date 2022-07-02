@@ -6,7 +6,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "rm -r dist; tsc"
+    "build": "rm -r dist; tsc; rm -rf dist/__test__"
   },
   "repository": {
     "type": "git",

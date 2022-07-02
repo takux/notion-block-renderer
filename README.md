@@ -104,3 +104,12 @@ const Sample = ({ blocks }) => {
     [key: string]: React.CSSProperties;
 }
 ```
+
+### Code block samples
+
+**Unstyled:**
+<img width="450" alt="codeblock-unstyled" src="https://user-images.githubusercontent.com/53621441/176984909-a2f7cdaa-e043-41eb-bb8b-5598322f159d.png">
+
+**Styled:**
+<img width="450" alt="codeblock-styled" src="https://user-images.githubusercontent.com/53621441/176984906-fd1c5bc5-5eb3-4ea0-aa44-8bb8be0fa5f9.png">
+

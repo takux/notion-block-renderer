@@ -7,7 +7,7 @@ import {
   PREFIX,
   SYNTAX_HIGHLIGHTER_CSS,
 } from "./config";
-import { AnnotationType } from "./types";
+import { AnnotationType, RichTextType } from "./types";
 
 export function annotationToClassName(
   annotations: AnnotationType,
@@ -32,3 +32,16 @@ export const Context = createContext({
   isCodeHighlighter: IS_CODE_HIGHLIGHTER,
   syntaxHighlighterCSS: SYNTAX_HIGHLIGHTER_CSS,
 });
+
+/**
+ *
+ * @param richTextArr - array of rich_text objects
+ * @returns joined text
+ */
+export const getJoinedRichText = (richTextArr: RichTextType[]): string => {
+  const textArr = richTextArr.map(
+    (richText: any) => richText.plain_text
+    // richText.text.content
+  );
+  return textArr.join("");
+};

@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { annotationToClassName } from "../utils";
+import { annotationToClassName, getJoinedRichText } from "../utils";
 import { Context } from "../utils";
 import { useContext } from "react";
-import { CodeProps, RichTextType } from "../types";
+import { CodeProps } from "../types";
 import SyntaxHighlighter from "react-syntax-highlighter";
 
 const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
@@ -45,16 +45,3 @@ const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
 };
 
 export default CodeRenderer;
-
-/**
- *
- * @param richTextArr - array of rich_text objects
- * @returns joined text
- */
-export const getJoinedRichText = (richTextArr: RichTextType[]): string => {
-  const textArr = richTextArr.map(
-    (richText: any) => richText.plain_text
-    // richText.text.content
-  );
-  return textArr.join("");
-};

@@ -126,6 +126,9 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
             lang={block[block.type].language}
             richTextArr={block[block.type].rich_text}
           />
+          <div className={`${prefix}-caption`}>
+            <TextRenderer richTextArr={block[block.type].caption} />
+          </div>
         </div>
       );
     case BlockEnum.image:

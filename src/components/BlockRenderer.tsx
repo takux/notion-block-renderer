@@ -8,17 +8,17 @@ export const getBlocks = (blocks: BlockType[]) => {
   let components: JSX.Element[] = [];
   let blockArray = [];
 
+  /**
+   * this case end block group and push to components
+   * 1. end blockList
+   * 2. Since the current block is not blockListType, need to push to components
+   * 3. empty blockArray
+   * 4. set preBlockType to empty
+   */
   for (const [index, block] of blocks.entries()) {
     let isPreBlockList = Object.values(BlockListEnum).includes(preBlockType);
     let isCurrentBlockList = Object.values(BlockListEnum).includes(block.type);
 
-    /**
-     * this case end block group and push to components
-     * 1. end blockList
-     * 2. Since the current block is not blockListType, need to push to components
-     * 3. empty blockArray
-     * 4. set preBlockType to empty
-     */
     if (isPreBlockList && !isCurrentBlockList) {
       // 1.
       components.push(

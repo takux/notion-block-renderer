@@ -122,6 +122,9 @@ export type BlockProps = {
   blocksPrefix?: string;
   isNextJS?: boolean;
   isCodeHighlighter?: boolean;
+  syntaxHighlighterCSS?: {
+    [key: string]: React.CSSProperties;
+  };
 };
 
 export type BlocksProps = Omit<BlockProps, "block"> & {

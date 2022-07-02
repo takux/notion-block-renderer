@@ -5,6 +5,7 @@ import {
   IS_CODE_HIGHLIGHTER,
   IS_NEXTJS,
   PREFIX,
+  SYNTAX_HIGHLIGHTER_CSS,
 } from "./config";
 import { AnnotationType } from "./types";
 
@@ -29,4 +30,5 @@ export const Context = createContext({
   blockPrefix: BLOCK_PREFIX,
   blocksPrefix: BLOCKS_PREFIX,
   isCodeHighlighter: IS_CODE_HIGHLIGHTER,
+  syntaxHighlighterCSS: SYNTAX_HIGHLIGHTER_CSS,
 });

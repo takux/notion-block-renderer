@@ -4,24 +4,18 @@ import { Context } from "../utils";
 import { useContext } from "react";
 import { CodeProps, RichTextType } from "../types";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import {
-  monokaiSublime,
-  irBlack,
-  tomorrowNightBright,
-  monokai,
-} from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
-  const { prefix, isCodeHighlighter } = useContext(Context);
+  const { prefix, isCodeHighlighter, syntaxHighlighterCSS } =
+    useContext(Context);
   if (isCodeHighlighter) {
-    console.log(8888, isCodeHighlighter);
     return (
       <div className={`language-${lang} syntax-highlighter`}>
         <SyntaxHighlighter
           language={lang}
-          style={tomorrowNightBright}
-          className="rounded-lg"
-          customStyle={{ padding: "1rem" }}
+          style={syntaxHighlighterCSS}
+          className="syntax-highlighter-pre"
+          // customStyle={{ padding: "1rem" }}
           // showLineNumbers={true}
         >
           {getJoinedText(richTextArr)}
@@ -29,7 +23,6 @@ const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
       </div>
     );
   } else {
-    console.log(9999, isCodeHighlighter);
     return (
       <pre>
         <code className={`language-${lang}`}>

@@ -5,6 +5,7 @@ import {
   IS_CODE_HIGHLIGHTER,
   IS_NEXTJS,
   PREFIX,
+  SYNTAX_HIGHLIGHTER_CSS,
 } from "../config";
 import { BlocksProps } from "../types";
 import { Context } from "../utils";
@@ -17,8 +18,8 @@ const NotionBlocks: FC<BlocksProps> = ({
   blocksPrefix,
   isNextJS,
   isCodeHighlighter,
+  syntaxHighlighterCSS,
 }) => {
-  console.log(1111, isCodeHighlighter);
   return (
     <Context.Provider
       value={{
@@ -30,6 +31,10 @@ const NotionBlocks: FC<BlocksProps> = ({
           isCodeHighlighter !== undefined
             ? isCodeHighlighter
             : IS_CODE_HIGHLIGHTER,
+        syntaxHighlighterCSS:
+          syntaxHighlighterCSS !== undefined
+            ? syntaxHighlighterCSS
+            : SYNTAX_HIGHLIGHTER_CSS,
       }}
     >
       <div className={`${prefix}-${BLOCKS_PREFIX}`}>

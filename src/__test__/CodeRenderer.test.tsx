@@ -1,5 +1,15 @@
 import { create } from "react-test-renderer";
 import CodeRenderer from "../components/CodeRenderer";
+import { createContext } from "react";
+import { useContext } from "react";
+import {
+  BLOCKS_PREFIX,
+  BLOCK_PREFIX,
+  IS_CODE_HIGHLIGHTER,
+  IS_NEXTJS,
+  PREFIX,
+  SYNTAX_HIGHLIGHTER_CSS,
+} from "../config";
 
 const annotations = {
   bold: false,
@@ -34,9 +44,31 @@ const richTextArr = [
   },
 ];
 
+export const Context = createContext({
+  prefix: PREFIX,
+  isNextJS: IS_NEXTJS,
+  blockPrefix: BLOCK_PREFIX,
+  blocksPrefix: BLOCKS_PREFIX,
+  // isCodeHighlighter: IS_CODE_HIGHLIGHTER,
+  isCodeHighlighter: true,
+  syntaxHighlighterCSS: SYNTAX_HIGHLIGHTER_CSS,
+});
+
 it("changes the class when hovered", () => {
   const component = create(
-    <CodeRenderer lang="typescript" richTextArr={richTextArr} />
+    <Context.Provider
+      value={{
+        prefix: PREFIX,
+        blockPrefix: BLOCK_PREFIX,
+        blocksPrefix: BLOCKS_PREFIX,
+        isNextJS: IS_NEXTJS,
+        // isCodeHighlighter: IS_CODE_HIGHLIGHTER,
+        isCodeHighlighter: true,
+        syntaxHighlighterCSS: SYNTAX_HIGHLIGHTER_CSS,
+      }}
+    >
+      <CodeRenderer lang="typescript" richTextArr={richTextArr} />
+    </Context.Provider>
   );
 
   let tree = component.toJSON();

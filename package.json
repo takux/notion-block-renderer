@@ -6,7 +6,8 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "rm -r dist; tsc; rm -rf dist/__test__"
+    "build": "rm -r dist; tsc; rm -rf dist/__test__",
+    "patch": "npm version patch; npm run build"
   },
   "repository": {
     "type": "git",

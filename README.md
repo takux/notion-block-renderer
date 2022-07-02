@@ -140,14 +140,14 @@ The `NotionBlocks` component has several props.
 | blocksPrefix | Add prefix to className of blocks html component. | "blocks" | --- |
 | isCodeHighlighter | Code block's style. If true, code blocks are styled by CSS. | false | true |
 | syntaxHighlighterCSS | If `isCodeHighlighter` is true, you can change style to your own CSS. Using [react-syntax-highlighter](https://www.npmjs.com/package/react-syntax-highlighter)'s styled CSS is easy way. | `tomorrowNightBright` | `monokaiSublime` |
-<!-- | isNextJS | --- | true | --- | -->
+| isNextJS | If true, the link text is wrapped by the nextjs `Link` component. | false | --- |
 
 
 <br />
 
 ### type
 
-The props for `blocks`` is as follows. This is just a reference code. See currect type: [types.ts](https://github.com/takux/notion-block-renderer/blob/a67187542aa170e12ecd69e0afb11a2734509a34/src/types.ts).
+The props type for `blocks` is as follows. This is just a reference code. See currect type: [types.ts](https://github.com/takux/notion-block-renderer/blob/a67187542aa170e12ecd69e0afb11a2734509a34/src/types.ts).
 
 
 ```js
@@ -156,10 +156,10 @@ type BlocksProps = {
   prefix?: string;
   blockPrefix?: string;
   blocksPrefix?: string;
-  isNextJS?: boolean;
   isCodeHighlighter?: boolean;
   syntaxHighlighterCSS?: {
     [key: string]: React.CSSProperties;
   };
+  isNextJS?: boolean;
 };
 ```

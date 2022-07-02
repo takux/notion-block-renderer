@@ -133,7 +133,6 @@ export type BlocksProps = Omit<BlockProps, "block"> & {
 
 export type TextProps = {
   richTextArr: any;
-  isNextLink?: boolean;
   isCaption?: boolean;
 };
 

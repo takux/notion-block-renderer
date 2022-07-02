@@ -18,7 +18,7 @@ const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
           // customStyle={{ padding: "1rem" }}
           // showLineNumbers={true}
         >
-          {getJoinedText(richTextArr)}
+          {getJoinedRichText(richTextArr)}
         </SyntaxHighlighter>
       </div>
     );
@@ -48,12 +48,12 @@ export default CodeRenderer;
 
 /**
  *
- * @param richTextArr
- * @returns
+ * @param richTextArr - array of rich_text objects
+ * @returns joined text
  */
-const getJoinedText = (richTextArr: RichTextType[]): string => {
+export const getJoinedRichText = (richTextArr: RichTextType[]): string => {
   const textArr = richTextArr.map(
-    (richText: any, index: number) => richText.plain_text
+    (richText: any) => richText.plain_text
     // richText.text.content
   );
   return textArr.join("");

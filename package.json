@@ -7,7 +7,9 @@
   "scripts": {
     "test": "jest",
     "build": "rm -r dist; tsc; rm -rf dist/__test__",
-    "patch": "npm version patch; npm run build"
+    "patch": "npm version patch; npm run build",
+    "minor": "npm version minor; npm run build",
+    "major": "npm version major; npm run build"
   },
   "repository": {
     "type": "git",

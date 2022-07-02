@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`changes the class when hovered 1`] = `
+<div
+  className="language-typescript syntax-highlighter"
+>
+  <pre
+    className="rounded-lg"
+    style={
+      Object {
+        "background": "black",
+        "color": "#eaeaea",
+        "display": "block",
+        "overflowX": "auto",
+        "padding": "1rem",
+      }
+    }
+  >
+    <code
+      className="language-typescript"
+      style={
+        Object {
+          "whiteSpace": "pre",
+        }
+      }
+    />
+  </pre>
+</div>
+`;
+
+exports[`changes the class when hovered 2`] = `
+<div
+  className="language-typescript syntax-highlighter"
+>
+  <pre
+    className="rounded-lg"
+    style={
+      Object {
+        "background": "black",
+        "color": "#eaeaea",
+        "display": "block",
+        "overflowX": "auto",
+        "padding": "1rem",
+      }
+    }
+  >
+    <code
+      className="language-typescript"
+      style={
+        Object {
+          "whiteSpace": "pre",
+        }
+      }
+    />
+  </pre>
+</div>
+`;
+
+exports[`changes the class when hovered 3`] = `
+<div
+  className="language-typescript syntax-highlighter"
+>
+  <pre
+    className="rounded-lg"
+    style={
+      Object {
+        "background": "black",
+        "color": "#eaeaea",
+        "display": "block",
+        "overflowX": "auto",
+        "padding": "1rem",
+      }
+    }
+  >
+    <code
+      className="language-typescript"
+      style={
+        Object {
+          "whiteSpace": "pre",
+        }
+      }
+    />
+  </pre>
+</div>
+`;

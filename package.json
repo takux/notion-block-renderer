@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "rm -r dist; tsc"
   },
   "repository": {
@@ -25,12 +25,20 @@
   },
   "homepage": "https://github.com/takux/notion-block-renderer#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.18.6",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/jest": "^28.1.4",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "@types/react-syntax-highlighter": "^15.5.2",
+    "@types/react-test-renderer": "^18.0.0",
+    "babel-jest": "^28.1.2",
+    "jest": "^28.1.2",
     "next": "^12.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
     "typescript": "^4.7.4"
   },
   "files": [

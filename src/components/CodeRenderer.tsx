@@ -39,7 +39,8 @@ const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
           const className = annotationToClassName(richText.annotations, prefix);
           return (
             <span key={index} className={className}>
-              {richText.text.content}
+              {/* {richText.text.content} */}
+              {richText.plain_text}
             </span>
           );
         })}
@@ -57,7 +58,8 @@ export default CodeRenderer;
  */
 const getJoinedText = (richTextArr: RichTextType[]): string => {
   const textArr = richTextArr.map(
-    (richText: any, index: number) => richText.text.content
+    (richText: any, index: number) => richText.plain_text
+    // richText.text.content
   );
   return textArr.join("");
 };

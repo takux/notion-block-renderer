@@ -13,8 +13,7 @@ import {
 
 const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
   const { prefix, isCodeHighlighter } = useContext(Context);
-
-  if (!isCodeHighlighter) {
+  if (isCodeHighlighter) {
     console.log(8888, isCodeHighlighter);
     return (
       <div className={`language-${lang} syntax-highlighter`}>
@@ -29,37 +28,27 @@ const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
         </SyntaxHighlighter>
       </div>
     );
+  } else {
+    console.log(9999, isCodeHighlighter);
+    return (
+      <pre>
+        <code className={`language-${lang}`}>
+          {richTextArr.map((richText: any, index: number) => {
+            const className = annotationToClassName(
+              richText.annotations,
+              prefix
+            );
+            return (
+              <span key={index} className={className}>
+                {/* {richText.text.content} */}
+                {richText.plain_text}
+              </span>
+            );
+          })}
+        </code>
+      </pre>
+    );
   }
-  console.log(2222, isCodeHighlighter);
-  return (
-    <div className={`language-${lang} syntax-highlighter`}>
-      <SyntaxHighlighter
-        language={lang}
-        style={tomorrowNightBright}
-        className="rounded-lg"
-        customStyle={{ padding: "1rem" }}
-        // showLineNumbers={true}
-      >
-        {getJoinedText(richTextArr)}
-      </SyntaxHighlighter>
-    </div>
-  );
-
-  return (
-    <pre>
-      <code className={`language-${lang}`}>
-        {richTextArr.map((richText: any, index: number) => {
-          const className = annotationToClassName(richText.annotations, prefix);
-          return (
-            <span key={index} className={className}>
-              {/* {richText.text.content} */}
-              {richText.plain_text}
-            </span>
-          );
-        })}
-      </code>
-    </pre>
-  );
 };
 
 export default CodeRenderer;

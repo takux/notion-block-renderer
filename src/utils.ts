@@ -26,7 +26,7 @@ export function annotationToClassName(
 
 export const Context = createContext({
   prefix: PREFIX,
-  isNextJS: IS_NEXTJS,
+  // isNextJS: IS_NEXTJS,
   blockPrefix: BLOCK_PREFIX,
   blocksPrefix: BLOCKS_PREFIX,
   isCodeHighlighter: IS_CODE_HIGHLIGHTER,
@@ -39,9 +39,6 @@ export const Context = createContext({
  * @returns joined text
  */
 export const getJoinedRichText = (richTextArr: RichTextType[]): string => {
-  const textArr = richTextArr.map(
-    (richText: any) => richText.plain_text
-    // richText.text.content
-  );
+  const textArr = richTextArr.map((richText: any) => richText.plain_text);
   return textArr.join("");
 };

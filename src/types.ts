@@ -123,7 +123,7 @@ export type BlockProps = {
   prefix?: string;
   blockPrefix?: string;
   blocksPrefix?: string;
-  isNextJS?: boolean;
+  // isNextJS?: boolean;
   isCodeHighlighter?: boolean;
   syntaxHighlighterCSS?: {
     [key: string]: React.CSSProperties;

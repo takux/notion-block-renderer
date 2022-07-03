@@ -140,7 +140,6 @@ The `NotionBlocks` component has several props.
 | blocksPrefix | Add prefix to className of blocks html component. | "blocks" | --- |
 | isCodeHighlighter | Code block's style. If true, code blocks are styled by CSS. | false | true |
 | syntaxHighlighterCSS | If `isCodeHighlighter` is true, you can change style to your own CSS. Using [react-syntax-highlighter](https://www.npmjs.com/package/react-syntax-highlighter)'s styled CSS is easy way. | `tomorrowNightBright` | `monokaiSublime` |
-| isNextJS | If true, the link text is wrapped by the nextjs `Link` component. | false | --- |
 
 
 <br />

@@ -75,6 +75,9 @@ type CodeBlockType = {
 
 type FileBlockType = {
   caption: RichTextType[];
+  external: {
+    url: string;
+  };
   file: {
     expiry_time?: string;
     url: string;
@@ -136,9 +139,9 @@ export type TextProps = {
   isCaption?: boolean;
 };
 
-export type FileProps = {
-  url: string;
-};
+// export type FileProps = {
+//   url: string;
+// };
 // export type ImageProps = {
 //   url: string;
 // };
@@ -151,4 +154,8 @@ export type CodeProps = {
 export type BlockListProps = {
   blockType: string;
   children: JSX.Element[];
+};
+
+export type FileBlocProps = {
+  block: FileBlockType;
 };

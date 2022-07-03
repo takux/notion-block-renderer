@@ -1,5 +1,10 @@
 # notion-block-renderer
 
+<!-- > **Warning**   -->
+> v2.0.x ~: `isNextJS` of main props was removed.
+
+<br />
+
 This package is suitable for use with Reactjs or Nextjs.
 
 <br />
@@ -159,6 +164,5 @@ type BlocksProps = {
   syntaxHighlighterCSS?: {
     [key: string]: React.CSSProperties;
   };
-  isNextJS?: boolean;
 };
 ```

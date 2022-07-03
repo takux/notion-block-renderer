@@ -20,10 +20,11 @@ const NotionBlocks: FC<BlocksProps> = ({
   isCodeHighlighter,
   syntaxHighlighterCSS,
 }) => {
+  const initialPrefix = prefix !== undefined ? prefix : PREFIX;
   return (
     <Context.Provider
       value={{
-        prefix: prefix !== undefined ? prefix : PREFIX,
+        prefix: initialPrefix,
         blockPrefix: blockPrefix !== undefined ? blockPrefix : BLOCK_PREFIX,
         blocksPrefix: blocksPrefix !== undefined ? blocksPrefix : BLOCKS_PREFIX,
         // isNextJS: isNextJS !== undefined ? isNextJS : IS_NEXTJS,
@@ -37,15 +38,8 @@ const NotionBlocks: FC<BlocksProps> = ({
             : SYNTAX_HIGHLIGHTER_CSS,
       }}
     >
-      <div className={`${prefix}-${BLOCKS_PREFIX}`}>
+      <div className={`${initialPrefix}-${BLOCKS_PREFIX}`}>
         {getBlocks(blocks)}
-        {/* {blocks.map((block: BlockType, index: number) => {
-          getBlocks(blocks)
-
-          // set current blockType to preBlockType
-          preBlockType = block.type;
-          return <NotionBlockCore key={index} block={block} />;
-        })} */}
       </div>
     </Context.Provider>
   );

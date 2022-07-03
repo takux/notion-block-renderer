@@ -97,7 +97,9 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
       return (
         <div className={`${prefix}-${blockPrefix}-image`}>
           <div className={`${prefix}-image`}>
-            <ImageRenderer url={block[block.type].file.url} />
+            {block[block.type].file.url && (
+              <ImageRenderer url={block[block.type].file.url} />
+            )}
           </div>
           <div className={`${prefix}-caption`}>
             <TextRenderer richTextArr={block[block.type].caption} />
@@ -108,7 +110,9 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
       return (
         <div className={`${prefix}-${blockPrefix}-video`}>
           <div className={`${prefix}-video`}>
-            <VideoRenderer url={block[block.type].file.url} />
+            {block[block.type].file.url && (
+              <VideoRenderer url={block[block.type].file.url} />
+            )}
           </div>
           <div className={`${prefix}-caption`}>
             <TextRenderer richTextArr={block[block.type].caption} />

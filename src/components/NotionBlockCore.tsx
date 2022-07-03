@@ -53,53 +53,17 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
         </div>
       );
     case BlockEnum.bulleted_list_item:
-      /**
-       * Currently this only uses <div> as well as <li>. There is no <ul>, and the specification is to decorate with 'list-style: initial;' and 'display: list-item;'.
-       */
-      // return (
-      //   <div className={`${prefix}-${blockPrefix}-bulleted_list_item`}>
-      //     <ul>
-      //       <li>
-      //         <TextRenderer richTextArr={block[block.type].rich_text} />
-      //       </li>
-      //     </ul>
-      //   </div>
-      // );
       return (
         <li className={`${prefix}-${blockPrefix}-bulleted_list_item`}>
           <TextRenderer richTextArr={block[block.type].rich_text} />
         </li>
       );
-    // return (
-    //   <div className={`${prefix}-${blockPrefix}-bulleted_list_item`}>
-    //     <div className={`default-bulleted_list_item`}>
-    //       <TextRenderer richTextArr={block[block.type].rich_text} />
-    //     </div>
-    //   </div>
-    // );
     case BlockEnum.numbered_list_item:
       return (
         <li className={`${prefix}-${blockPrefix}-numbered_list_item`}>
           <TextRenderer richTextArr={block[block.type].rich_text} />
         </li>
       );
-    // return (
-    //   <div className={`${prefix}-${blockPrefix}-numbered_list_item`}>
-    //     <ol>
-    //       <li>
-    //         <TextRenderer richTextArr={block[block.type].rich_text} />
-    //       </li>
-    //     </ol>
-    //   </div>
-    // );
-    // return (
-    //   <div className={`${prefix}-${blockPrefix}-numbered_list_item`}>
-    //     <div className={`default-numbered_list_item`}>
-    //       <TextRenderer richTextArr={block[block.type].rich_text} />
-    //     </div>
-    //   </div>
-    // );
-
     case BlockEnum.quote:
       return (
         <div className={`${prefix}-${blockPrefix}-quote`}>
@@ -111,10 +75,8 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
     case BlockEnum.callout:
       return (
         <div className={`${prefix}-${blockPrefix}-callout`}>
-          <div>
-            <span className={`${prefix}-icon`}>
-              {block[block.type].icon.emoji}
-            </span>
+          <div className={`${prefix}-icon`}>{block[block.type].icon.emoji}</div>
+          <div className={`${prefix}-callout`}>
             <TextRenderer richTextArr={block[block.type].rich_text} />
           </div>
         </div>
@@ -134,7 +96,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
     case BlockEnum.image:
       return (
         <div className={`${prefix}-${blockPrefix}-image`}>
-          <div>
+          <div className={`${prefix}-image`}>
             <ImageRenderer url={block[block.type].file.url} />
           </div>
           <div className={`${prefix}-caption`}>
@@ -145,7 +107,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
     case BlockEnum.video:
       return (
         <div className={`${prefix}-${blockPrefix}-video`}>
-          <div>
+          <div className={`${prefix}-video`}>
             <VideoRenderer url={block[block.type].file.url} />
           </div>
           <div className={`${prefix}-caption`}>

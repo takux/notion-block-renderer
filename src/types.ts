@@ -20,7 +20,7 @@ export type AnnotationType = {
 // https://developers.notion.com/reference/rich-text
 export type RichTextType = {
   plain_text: string;
-  href?: string;
+  href: string | null;
   annotations: AnnotationType;
   type: string;
   //   text: {

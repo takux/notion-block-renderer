@@ -40,7 +40,7 @@ You have to pass `blocks`.
 `blocks` is result of a response object as follows:
 
 ```js
-const response = await notion.blocks.children.list({ block_id: id });
+const { results: blocks }  = await notion.blocks.children.list({ block_id: id });
 ``` 
 
 For more detail, see the Notion docs.

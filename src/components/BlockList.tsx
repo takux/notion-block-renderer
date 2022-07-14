@@ -1,7 +1,8 @@
 import { FC } from "react";
-import { BlockEnum, BlockListProps } from "../types";
+import { BlockEnum } from "../types/types";
 import { useContext } from "react";
 import { Context } from "../utils";
+import { BlockListProps } from "../types/props";
 
 const BlockList: FC<BlockListProps> = ({ blockType, children }) => {
   const { prefix, blockPrefix } = useContext(Context);

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { BlockEnum, BlockProps } from "../types";
+import { BlockEnum } from "../types/types";
 import CodeRenderer from "./CodeRenderer";
 import ImageRenderer from "./ImageRenderer";
 import TextRenderer from "./TextRenderer";
@@ -7,11 +7,13 @@ import { useContext } from "react";
 import { PACKAGE_NAME } from "../config";
 import { Context } from "../utils";
 import VideoRenderer from "./VideoRenderer";
+import { BlockProps } from "../types/props";
 
 const NotionBlockCore: FC<BlockProps> = ({ block }) => {
+  // if (!block[block.type]) return;
   const { prefix, blockPrefix } = useContext(Context);
   switch (block.type) {
-    case BlockEnum.paragraph:
+    case "paragraph":
       if (block[block.type].rich_text.length > 0) {
         return (
           <div className={`${prefix}-${blockPrefix}-p`}>

@@ -35,12 +35,12 @@ const richTextArr = [
     href: "",
     annotations: annotations,
     type: "",
-    //   text: {
-    //     content: string;
-    //     link: {
-    //       url: string;
-    //     };
-    //   };
+    text: {
+      content: "",
+      link: {
+        url: "",
+      },
+    },
   },
 ];
 

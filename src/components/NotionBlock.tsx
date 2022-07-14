@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { BlockProps } from "../types";
+import { BlockProps } from "../types/props";
 import {
   BLOCKS_PREFIX,
   BLOCK_PREFIX,

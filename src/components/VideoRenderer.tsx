@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { FileBlocProps } from "../types";
+import { FileBlockProps } from "../types/props";
 
-const VideoRenderer: FC<FileBlocProps> = ({ block }) => {
+const VideoRenderer: FC<FileBlockProps> = ({ block }) => {
   if (block.external) {
     return (
       <video>

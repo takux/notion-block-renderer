@@ -25,7 +25,9 @@ export type RichTextType = {
   type: string;
   text: {
     content: string;
-    link: { url: string } | null;
+    link: {
+      url: string;
+    } | null;
   };
 };
 
@@ -73,7 +75,7 @@ type CodeBlockType = {
   language: string;
 };
 
-type FileBlockType = {
+export type FileBlockType = {
   caption: RichTextType[];
   external: {
     url: string;
@@ -102,62 +104,75 @@ type CalloutBlockType = {
 //   type: string;
 // };
 
+// export type BlockType = {
+//   id: string;
+//   type: string;
+//   paragraph: TextBlockType;
+//   heading_1: TextBlockType;
+//   heading_2: TextBlockType;
+//   heading_3: TextBlockType;
+//   code: CodeBlockType;
+//   image: FileBlockType;
+//   video: FileBlockType;
+//   callout: CalloutBlockType;
+//   quote: TextBlockType;
+//   bulleted_list_item: TextBlockType;
+//   numbered_list_item: TextBlockType;
+// };
+
+export type BlockTypeName =
+  | "paragraph"
+  | "heading_1"
+  | "heading_2"
+  | "heading_3"
+  | "code"
+  | "image"
+  | "video"
+  | "callout"
+  | "quote"
+  | "bulleted_list_item"
+  | "numbered_list_item";
+
+type BaseBlock = {
+  id: string;
+  // type: BlockTypeName;
+  object: string;
+  parent: any;
+  created_time: any;
+  last_edited_time: any;
+  created_by: any;
+  last_edited_by: any;
+  has_children: boolean;
+  archived: boolean;
+};
+
+type Paragraph = BaseBlock & { type: "paragraph"; paragraph: TextBlockType };
+type Heading1 = BaseBlock & { type: "heading_1"; heading_1: TextBlockType };
+type Heading2 = BaseBlock & { type: "heading_2"; heading_2: TextBlockType };
+type Heading3 = BaseBlock & { type: "heading_3"; heading_3: TextBlockType };
+type Code = BaseBlock & { type: "code"; code: CodeBlockType };
+type Image = BaseBlock & { type: "image"; image: FileBlockType };
+type Video = BaseBlock & { type: "video"; video: FileBlockType };
+type Callout = BaseBlock & { type: "callout"; callout: CalloutBlockType };
+type Quote = BaseBlock & { type: "quote"; quote: TextBlockType };
+type BulletedListItem = BaseBlock & {
+  type: "bulleted_list_item";
+  bulleted_list_item: TextBlockType;
+};
+type NumberedListItem = BaseBlock & {
+  type: "numbered_list_item";
+  numbered_list_item: TextBlockType;
+};
+
 export type BlockType =
-  | {
-      id: string;
-      type: string;
-      paragraph: TextBlockType;
-      heading_1: TextBlockType;
-      heading_2: TextBlockType;
-      heading_3: TextBlockType;
-      code: CodeBlockType;
-      image: FileBlockType;
-      video: FileBlockType;
-      callout: CalloutBlockType;
-      quote: TextBlockType;
-      bulleted_list_item: TextBlockType;
-      numbered_list_item: TextBlockType;
-    }
-  | Record<string, any>;
-
-export type BlockProps = {
-  block: BlockType;
-  prefix?: string;
-  blockPrefix?: string;
-  blocksPrefix?: string;
-  // isNextJS?: boolean;
-  isCodeHighlighter?: boolean;
-  syntaxHighlighterCSS?: {
-    [key: string]: React.CSSProperties;
-  };
-};
-
-export type BlocksProps = Omit<BlockProps, "block"> & {
-  blocks: BlockType[];
-};
-
-export type TextProps = {
-  richTextArr: any;
-  isCaption?: boolean;
-};
-
-// export type FileProps = {
-//   url: string;
-// };
-// export type ImageProps = {
-//   url: string;
-// };
-
-export type CodeProps = {
-  lang: string;
-  richTextArr: RichTextType[];
-};
-
-export type BlockListProps = {
-  blockType: string;
-  children: JSX.Element[];
-};
-
-export type FileBlocProps = {
-  block: FileBlockType;
-};
+  | Paragraph
+  | Heading1
+  | Heading2
+  | Heading3
+  | Code
+  | Image
+  | Video
+  | Callout
+  | Quote
+  | BulletedListItem
+  | NumberedListItem;

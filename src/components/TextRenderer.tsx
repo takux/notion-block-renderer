@@ -2,7 +2,7 @@ import { FC } from "react";
 import { annotationToClassName } from "../utils";
 import { Context } from "../utils";
 import { useContext } from "react";
-import { TextProps } from "../types";
+import { TextProps } from "../types/props";
 
 const TextRenderer: FC<TextProps> = ({ richTextArr }) => {
   const { prefix } = useContext(Context);

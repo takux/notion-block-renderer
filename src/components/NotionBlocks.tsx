@@ -7,7 +7,7 @@ import {
   PREFIX,
   SYNTAX_HIGHLIGHTER_CSS,
 } from "../config";
-import { BlocksProps } from "../types";
+import { BlocksProps } from "../types/props";
 import { Context } from "../utils";
 import { getBlocks } from "./BlockRenderer";
 

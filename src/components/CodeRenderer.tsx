@@ -2,7 +2,7 @@ import { FC } from "react";
 import { annotationToClassName, getJoinedRichText } from "../utils";
 import { Context } from "../utils";
 import { useContext } from "react";
-import { CodeProps } from "../types";
+import { CodeProps } from "../types/props";
 import SyntaxHighlighter from "react-syntax-highlighter";
 
 const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {

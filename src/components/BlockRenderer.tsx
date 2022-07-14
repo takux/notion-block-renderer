@@ -1,5 +1,5 @@
 // import { FC } from "react";
-import { BlockListEnum, BlockType } from "../types";
+import { BlockListEnum, BlockType } from "../types/types";
 import BlockList from "./BlockList";
 import NotionBlockCore from "./NotionBlockCore";
 

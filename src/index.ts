@@ -2,7 +2,7 @@
 import NotionBlocks from "./components/NotionBlocks";
 import NotionBlock from "./components/NotionBlock";
 
-export * from "./types";
+export * from "./types/types";
 export * from "./utils";
 export * from "./components/NotionBlock";
 export * from "./components/CodeRenderer";

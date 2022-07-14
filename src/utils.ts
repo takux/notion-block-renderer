@@ -7,7 +7,7 @@ import {
   PREFIX,
   SYNTAX_HIGHLIGHTER_CSS,
 } from "./config";
-import { AnnotationType, RichTextType } from "./types";
+import { AnnotationType, RichTextType } from "./types/types";
 
 export function annotationToClassName(
   annotations: AnnotationType,

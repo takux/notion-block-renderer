@@ -15,6 +15,19 @@ This package compatible to the `2022-02-22` version of Notion API.
 
 Notion API version: https://developers.notion.com/reference/changes-by-version
 
+<br />
+
+
+## Install
+
+```
+npm install notion-block-renderer
+```
+or
+
+```
+yarn add notion-block-renderer
+```
 
 <br />
 

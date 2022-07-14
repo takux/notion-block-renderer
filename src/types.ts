@@ -23,12 +23,10 @@ export type RichTextType = {
   href: string | null;
   annotations: AnnotationType;
   type: string;
-  //   text: {
-  //     content: string;
-  //     link: {
-  //       url: string;
-  //     };
-  //   };
+  text: {
+    content: string;
+    link: { url: string } | null;
+  };
 };
 
 // https://developers.notion.com/reference/block
@@ -104,21 +102,23 @@ type CalloutBlockType = {
 //   type: string;
 // };
 
-export type BlockType = {
-  id: string;
-  type: string;
-  paragraph: TextBlockType;
-  heading_1: TextBlockType;
-  heading_2: TextBlockType;
-  heading_3: TextBlockType;
-  code: CodeBlockType;
-  image: FileBlockType;
-  video: FileBlockType;
-  callout: CalloutBlockType;
-  quote: TextBlockType;
-  bulleted_list_item: TextBlockType;
-  numbered_list_item: TextBlockType;
-};
+export type BlockType =
+  | {
+      id: string;
+      type: string;
+      paragraph: TextBlockType;
+      heading_1: TextBlockType;
+      heading_2: TextBlockType;
+      heading_3: TextBlockType;
+      code: CodeBlockType;
+      image: FileBlockType;
+      video: FileBlockType;
+      callout: CalloutBlockType;
+      quote: TextBlockType;
+      bulleted_list_item: TextBlockType;
+      numbered_list_item: TextBlockType;
+    }
+  | Record<string, any>;
 
 export type BlockProps = {
   block: BlockType;

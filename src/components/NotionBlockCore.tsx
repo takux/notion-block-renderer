@@ -30,7 +30,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
           </p>
         </div>
       );
-    case BlockEnum.heading_1:
+    case "heading_1":
       return (
         <div className={`${prefix}-${blockPrefix}-h1`}>
           <h1>
@@ -38,7 +38,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
           </h1>
         </div>
       );
-    case BlockEnum.heading_2:
+    case "heading_2":
       return (
         <div className={`${prefix}-${blockPrefix}-h2`}>
           <h2>
@@ -46,7 +46,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
           </h2>
         </div>
       );
-    case BlockEnum.heading_3:
+    case "heading_3":
       return (
         <div className={`${prefix}-${blockPrefix}-h3`}>
           <h3>
@@ -54,19 +54,19 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
           </h3>
         </div>
       );
-    case BlockEnum.bulleted_list_item:
+    case "bulleted_list_item":
       return (
         <li className={`${prefix}-${blockPrefix}-bulleted_list_item`}>
           <TextRenderer richTextArr={block[block.type].rich_text} />
         </li>
       );
-    case BlockEnum.numbered_list_item:
+    case "numbered_list_item":
       return (
         <li className={`${prefix}-${blockPrefix}-numbered_list_item`}>
           <TextRenderer richTextArr={block[block.type].rich_text} />
         </li>
       );
-    case BlockEnum.quote:
+    case "quote":
       return (
         <div className={`${prefix}-${blockPrefix}-quote`}>
           <div>
@@ -74,7 +74,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
           </div>
         </div>
       );
-    case BlockEnum.callout:
+    case "callout":
       return (
         <div className={`${prefix}-${blockPrefix}-callout`}>
           <div className={`${prefix}-icon`}>{block[block.type].icon.emoji}</div>
@@ -83,7 +83,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
           </div>
         </div>
       );
-    case BlockEnum.code:
+    case "code":
       return (
         <div className={`${prefix}-${blockPrefix}-code`}>
           <CodeRenderer
@@ -95,7 +95,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
           </div>
         </div>
       );
-    case BlockEnum.image:
+    case "image":
       return (
         <div className={`${prefix}-${blockPrefix}-image`}>
           <div className={`${prefix}-image`}>
@@ -106,7 +106,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
           </div>
         </div>
       );
-    case BlockEnum.video:
+    case "video":
       return (
         <div className={`${prefix}-${blockPrefix}-video`}>
           <div className={`${prefix}-video`}>
@@ -118,9 +118,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
         </div>
       );
     default:
-      console.log(
-        `This '${block.type}' type not yet configured in ${PACKAGE_NAME}`
-      );
+      console.log(`This block type not yet configured in ${PACKAGE_NAME}`);
   }
   return <></>;
 };

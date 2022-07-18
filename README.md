@@ -62,6 +62,28 @@ https://developers.notion.com/reference/get-block-children
 
 <br />
 
+
+## Available Blocks
+
+
+| Block Type | 
+| --- |
+| paragraph | 
+| heading_1 | 
+| heading_2 | 
+| heading_3 | 
+| bulleted_list_item | 
+| numbered_list_item | 
+| quote | 
+| callout | 
+| code | 
+| image | 
+| video | 
+
+
+
+<br />
+
 ## Code Block Usage
 
 By default, code blocks are unstyled. The option `isCodeHighlighter` can be used to easily set the style. 

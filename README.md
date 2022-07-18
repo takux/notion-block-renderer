@@ -186,7 +186,7 @@ The `NotionBlocks` component has several props.
 
 ### type
 
-The props type for `blocks` is as follows. This is just a reference code. See currect type: [types.ts](https://github.com/takux/notion-block-renderer/blob/a67187542aa170e12ecd69e0afb11a2734509a34/src/types.ts).
+The props type for `blocks` is as follows. This is just a reference code. See currect type: [types.ts](https://github.com/takux/notion-block-renderer/blob/main/src/types/types.ts).
 
 
 ```js

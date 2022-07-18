@@ -11,7 +11,7 @@ This package is suitable for use with Reactjs or Nextjs.
 
 ## Notion API verion
 
-This package compatible to the `2022-02-22` version of Notion API.
+This package compatible to the `2022-02-22` and `2022-06-28` version of Notion API.
 
 Notion API version: https://developers.notion.com/reference/changes-by-version
 

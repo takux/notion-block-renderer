@@ -1,0 +1,53 @@
+/*
+* Sample tailwindcss.
+* See detail: https://tailwindcss.com/docs/guides/nextjs
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nbr-inline-code {
+  @apply text-pink-500 text-sm px-2 py-1 font-normal bg-gray-100 rounded break-words;
+}
+.nbr-caption {
+  @apply text-inherit opacity-70;
+}
+.nbr-link {
+  @apply text-inherit no-underline border-b border-solid border-gray-700 opacity-70;
+}
+.nbr-block-quote {
+  @apply border-l-4 border-solid border-gray-700 px-4 py-2;
+}
+.nbr-block-code {
+  @apply text-sm;
+}
+/* Hide only scrollbar */
+.nbr-block-code pre::-webkit-scrollbar {
+  @apply hidden !important;
+}
+.nbr-block-code .syntax-highlighter-pre {
+  @apply rounded-lg;
+  @apply p-5 !important;
+}
+.nbr-block-callout {
+  @apply bg-gray-100 pr-6 py-5 pl-4 rounded flex;
+}
+.nbr-block-callout .nbr-icon {
+  @apply min-w-min w-4 relative top-0.5;
+}
+.nbr-block-callout .nbr-callout {
+  @apply overflow-hidden w-full;
+  -webkit-margin-start: 8px;
+  margin-inline-start: 8px;
+}
+.nbr-block-ul {
+  @apply pl-4 list-disc;
+}
+.nbr-block-ol {
+  @apply pl-4 list-decimal;
+}
+/* Add margin-bottom for each block */
+.nbr-blocks > div {
+  @apply mb-4;
+}

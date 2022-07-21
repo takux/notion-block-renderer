@@ -169,6 +169,10 @@ const Sample = ({ blocks }) => {
 
 <br />
 
+## CSS example
+
+https://github.com/takux/notion-block-renderer/tree/main/example/styles/tailwindcss-sample.css
+
 ## Props
 
 The `NotionBlocks` component has several props.

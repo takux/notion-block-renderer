@@ -5,7 +5,9 @@
 
 <br />
 
-This package is suitable for use with Reactjs or Nextjs.
+This package is suitable for use with Reactjs or Nextjs. Notion blocks are rendered into React components. That component has a CSS class name corresponding to the block type. 
+
+I'm a programmer ([@takuxone](https://twitter.com/takuxone)). I first created this feature for myself. Later, I thought it would be useful for everyone, so I made it public.
 
 <br />
 

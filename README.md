@@ -207,3 +207,14 @@ type BlocksProps = {
   };
 };
 ```
+
+<br />
+
+## About me
+
+* [Twitter](https://twitter.com/takuxone)
+
+* [My Homepage](https://takux.one/)
+
+* [MY Blog](https://www.rabbitriver.page/)
+

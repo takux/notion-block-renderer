@@ -28,7 +28,7 @@ const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
     return (
       <div className={`language-${formatCodeLang(lang)} syntax-highlighter`}>
         <SyntaxHighlighter
-          language={lang}
+          language={formatCodeLang(lang)}
           style={syntaxHighlighterCSS}
           className="syntax-highlighter-pre"
           // customStyle={{ padding: "1rem" }}

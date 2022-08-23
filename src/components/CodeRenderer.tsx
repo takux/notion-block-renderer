@@ -5,12 +5,28 @@ import { useContext } from "react";
 import { CodeProps } from "../types/props";
 import SyntaxHighlighter from "react-syntax-highlighter";
 
+/**
+ * Convert the code language notation of the Notion api to the code language notation of react-syntax-highlighter.
+ * https://developers.notion.com/reference/block#code-blocks
+ * https://react-syntax-highlighter.github.io/react-syntax-highlighter/demo/
+ */
+const formatCodeLang = (lang: string) => {
+  switch (lang) {
+    case "plain text":
+      return "plaintext";
+    case "objective-c":
+      return "objectivec";
+    default:
+      return lang;
+  }
+};
+
 const CodeRenderer: FC<CodeProps> = ({ lang, richTextArr }) => {
   const { prefix, isCodeHighlighter, syntaxHighlighterCSS } =
     useContext(Context);
   if (isCodeHighlighter) {
     return (
-      <div className={`language-${lang} syntax-highlighter`}>
+      <div className={`language-${formatCodeLang(lang)} syntax-highlighter`}>
         <SyntaxHighlighter
           language={lang}
           style={syntaxHighlighterCSS}

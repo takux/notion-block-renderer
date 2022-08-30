@@ -92,7 +92,6 @@ By default, code blocks are unstyled. The option `isCodeHighlighter` can be used
 
 This package defaults to [react-syntax-highlighter](https://www.npmjs.com/package/react-syntax-highlighter) when `isCodeHighlighter` is `true`. Use.
 
-
 ```js
 const Sample = ({ blocks }) => {
     return (
@@ -116,6 +115,9 @@ You can choose to provide
 <br />
 
 ### react-syntax-highlighter style usage
+
+<!-- > **Warning**   -->
+> Only Highlight.js of `react-syntax-highlighter`(not Prism.js) is supported at this time. So please use to import from `"react-syntax-highlighter/dist/cjs/styles/hljs"`. See: [https://react-syntax-highlighter.github.io/react-syntax-highlighter/demo/](https://react-syntax-highlighter.github.io/react-syntax-highlighter/demo/)
 
 First you need to install `react-syntax-highlighter`.
 

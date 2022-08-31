@@ -3,7 +3,6 @@ import {
   BLOCKS_PREFIX,
   BLOCK_PREFIX,
   IS_CODE_HIGHLIGHTER,
-  // IS_NEXTJS,
   PREFIX,
   SYNTAX_HIGHLIGHTER_CSS,
 } from "../config";
@@ -16,7 +15,6 @@ const NotionBlocks: FC<BlocksProps> = ({
   prefix,
   blockPrefix,
   blocksPrefix,
-  // isNextJS,
   isCodeHighlighter,
   syntaxHighlighterCSS,
 }) => {
@@ -27,7 +25,6 @@ const NotionBlocks: FC<BlocksProps> = ({
         prefix: initialPrefix,
         blockPrefix: blockPrefix !== undefined ? blockPrefix : BLOCK_PREFIX,
         blocksPrefix: blocksPrefix !== undefined ? blocksPrefix : BLOCKS_PREFIX,
-        // isNextJS: isNextJS !== undefined ? isNextJS : IS_NEXTJS,
         isCodeHighlighter:
           isCodeHighlighter !== undefined
             ? isCodeHighlighter

@@ -6,7 +6,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "rm -r dist; tsc; rm -rf dist/__test__",
+    "build": "rm -r dist; tsc; rm -rf dist/__test__; yarn test",
     "patch": "npm version patch; npm run build",
     "minor": "npm version minor; npm run build",
     "major": "npm version major; npm run build"
@@ -50,8 +50,11 @@
     "typescript": "^4.7.4"
   },
   "files": [
+    "!dist/__tests__",
     "dist",
-    "src/styles.css"
+    "src/styles.css",
+    "!**/__tests__",
+    "!example"
   ],
   "dependencies": {
     "react-syntax-highlighter": "^15.5.0"

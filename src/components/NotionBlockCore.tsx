@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { BlockEnum } from "../types/types";
 import CodeRenderer from "./CodeRenderer";
 import ImageRenderer from "./ImageRenderer";
 import TextRenderer from "./TextRenderer";
@@ -8,9 +7,13 @@ import { PACKAGE_NAME } from "../config";
 import { Context } from "../utils";
 import VideoRenderer from "./VideoRenderer";
 import { BlockProps } from "../types/props";
+import TableOfContentsRenderer from "./TableOfContentsRenderer";
 
-const NotionBlockCore: FC<BlockProps> = ({ block }) => {
-  // if (!block[block.type]) return;
+const NotionBlockCore: FC<
+  BlockProps & {
+    blocks?: BlockProps["block"][];
+  }
+> = ({ block, blocks }) => {
   const { prefix, blockPrefix } = useContext(Context);
   switch (block.type) {
     case "paragraph":
@@ -32,7 +35,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
       );
     case "heading_1":
       return (
-        <div className={`${prefix}-${blockPrefix}-h1`}>
+        <div id={`${block.id}`} className={`${prefix}-${blockPrefix}-h1`}>
           <h1>
             <TextRenderer richTextArr={block[block.type].rich_text} />
           </h1>
@@ -40,7 +43,7 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
       );
     case "heading_2":
       return (
-        <div className={`${prefix}-${blockPrefix}-h2`}>
+        <div id={`${block.id}`} className={`${prefix}-${blockPrefix}-h2`}>
           <h2>
             <TextRenderer richTextArr={block[block.type].rich_text} />
           </h2>
@@ -48,10 +51,19 @@ const NotionBlockCore: FC<BlockProps> = ({ block }) => {
       );
     case "heading_3":
       return (
-        <div className={`${prefix}-${blockPrefix}-h3`}>
+        <div id={`${block.id}`} className={`${prefix}-${blockPrefix}-h3`}>
           <h3>
             <TextRenderer richTextArr={block[block.type].rich_text} />
           </h3>
+        </div>
+      );
+    case "table_of_contents":
+      return (
+        <div
+          id={`${block.id}`}
+          className={`${prefix}-${blockPrefix}-table_of_contents`}
+        >
+          {blocks && <TableOfContentsRenderer blocks={blocks} />}
         </div>
       );
     case "bulleted_list_item":

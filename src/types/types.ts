@@ -104,22 +104,6 @@ type CalloutBlockType = {
 //   type: string;
 // };
 
-// export type BlockType = {
-//   id: string;
-//   type: string;
-//   paragraph: TextBlockType;
-//   heading_1: TextBlockType;
-//   heading_2: TextBlockType;
-//   heading_3: TextBlockType;
-//   code: CodeBlockType;
-//   image: FileBlockType;
-//   video: FileBlockType;
-//   callout: CalloutBlockType;
-//   quote: TextBlockType;
-//   bulleted_list_item: TextBlockType;
-//   numbered_list_item: TextBlockType;
-// };
-
 export type BlockTypeName =
   | "paragraph"
   | "heading_1"
@@ -135,7 +119,6 @@ export type BlockTypeName =
 
 type BaseBlock = {
   id: string;
-  // type: BlockTypeName;
   object: string;
   parent: any;
   created_time: any;
@@ -147,9 +130,22 @@ type BaseBlock = {
 };
 
 type Paragraph = BaseBlock & { type: "paragraph"; paragraph: TextBlockType };
-type Heading1 = BaseBlock & { type: "heading_1"; heading_1: TextBlockType };
-type Heading2 = BaseBlock & { type: "heading_2"; heading_2: TextBlockType };
-type Heading3 = BaseBlock & { type: "heading_3"; heading_3: TextBlockType };
+export type Heading1 = BaseBlock & {
+  type: "heading_1";
+  heading_1: TextBlockType;
+};
+export type Heading2 = BaseBlock & {
+  type: "heading_2";
+  heading_2: TextBlockType;
+};
+export type Heading3 = BaseBlock & {
+  type: "heading_3";
+  heading_3: TextBlockType;
+};
+type TableOfContents = BaseBlock & {
+  type: "table_of_contents";
+  table_of_contents: { color: string };
+};
 type Code = BaseBlock & { type: "code"; code: CodeBlockType };
 type Image = BaseBlock & { type: "image"; image: FileBlockType };
 type Video = BaseBlock & { type: "video"; video: FileBlockType };
@@ -169,6 +165,7 @@ export type BlockType =
   | Heading1
   | Heading2
   | Heading3
+  | TableOfContents
   | Code
   | Image
   | Video

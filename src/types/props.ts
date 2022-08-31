@@ -1,11 +1,11 @@
 import { BlockType, FileBlockType, RichTextType } from "./types";
+// import type { GetPageResponse } from "@notionhq/client/build/src/api-endpoints.d";
 
 export type BlockProps = {
   block: BlockType;
   prefix?: string;
   blockPrefix?: string;
   blocksPrefix?: string;
-  // isNextJS?: boolean;
   isCodeHighlighter?: boolean;
   syntaxHighlighterCSS?: {
     [key: string]: React.CSSProperties;

@@ -1,12 +1,12 @@
 {
   "name": "notion-block-renderer",
-  "version": "2.2.2",
+  "version": "2.3.2",
   "description": "Notion Block to React Components.",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "rm -r dist; tsc; rm -rf dist/__test__",
+    "build": "rm -r dist; tsc; rm -r dist/__test__; rm -r dist/example; yarn test -u;",
     "patch": "npm version patch; npm run build",
     "minor": "npm version minor; npm run build",
     "major": "npm version major; npm run build"
@@ -50,8 +50,12 @@
     "typescript": "^4.7.4"
   },
   "files": [
+    "!dist/__test__",
+    "!dist/src/__test__",
     "dist",
-    "src/styles.css"
+    "src/styles.css",
+    "!**/__test__",
+    "!example"
   ],
   "dependencies": {
     "react-syntax-highlighter": "^15.5.0"

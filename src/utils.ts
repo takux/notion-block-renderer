@@ -3,7 +3,6 @@ import {
   BLOCKS_PREFIX,
   BLOCK_PREFIX,
   IS_CODE_HIGHLIGHTER,
-  IS_NEXTJS,
   PREFIX,
   SYNTAX_HIGHLIGHTER_CSS,
 } from "./config";
@@ -26,7 +25,6 @@ export function annotationToClassName(
 
 export const Context = createContext({
   prefix: PREFIX,
-  // isNextJS: IS_NEXTJS,
   blockPrefix: BLOCK_PREFIX,
   blocksPrefix: BLOCKS_PREFIX,
   isCodeHighlighter: IS_CODE_HIGHLIGHTER,

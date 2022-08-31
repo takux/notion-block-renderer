@@ -3,6 +3,8 @@
 <!-- > **Warning**   -->
 > v2.0.x ~: `isNextJS` of main props was removed.
 
+> v2.3.x ~: Added new block type `table_of_contents`.
+
 <br />
 
 This package is suitable for use with Reactjs or Nextjs. Notion blocks are rendered into React components. That component has a CSS class name corresponding to the block type. 
@@ -81,6 +83,7 @@ https://developers.notion.com/reference/get-block-children
 | code | 
 | image | 
 | video | 
+| table_of_contents | 
 
 
 
@@ -209,6 +212,10 @@ type BlocksProps = {
   };
 };
 ```
+
+<!--  -->
+> The `BlockType` is our original  declarative type. The best way may refer to [@notionhq/client](https://www.npmjs.com/package/@notionhq/client)'s type. Replacing code would be taking time. So please contribute if you can.
+
 
 <br />
 

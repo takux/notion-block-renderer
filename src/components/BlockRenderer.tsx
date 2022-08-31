@@ -21,7 +21,9 @@ export const getBlocks = (blocks: BlockType[]) => {
      * <div></div> <= current
      */
     if (!isPreBlockList && !isCurrentBlockList) {
-      components.push(<NotionBlockCore key={`${index}`} block={block} />);
+      components.push(
+        <NotionBlockCore key={`${index}`} block={block} blocks={blocks} />
+      );
       continue;
     }
 
@@ -42,7 +44,9 @@ export const getBlocks = (blocks: BlockType[]) => {
         </BlockList>
       );
       // 2. Since the current block is not blockListType, need to push to components
-      components.push(<NotionBlockCore key={`${index}.2`} block={block} />);
+      components.push(
+        <NotionBlockCore key={`${index}.2`} block={block} blocks={blocks} />
+      );
       // 3. empty blockArray
       blockArray = [];
       // 4. set preBlockType to empty
@@ -59,7 +63,9 @@ export const getBlocks = (blocks: BlockType[]) => {
      *  <li></li> <= current (type: ol, same as pre)
      */
     if (isPreBlockList && isCurrentBlockList && block.type === preBlockType) {
-      blockArray.push(<NotionBlockCore key={`${index}.1`} block={block} />);
+      blockArray.push(
+        <NotionBlockCore key={`${index}.1`} block={block} blocks={blocks} />
+      );
 
       /**
        * current block is last
@@ -91,7 +97,9 @@ export const getBlocks = (blocks: BlockType[]) => {
      *  <li></li> <= current
      */
     if (!isPreBlockList && isCurrentBlockList) {
-      blockArray.push(<NotionBlockCore key={`${index}.1`} block={block} />);
+      blockArray.push(
+        <NotionBlockCore key={`${index}.1`} block={block} blocks={blocks} />
+      );
       preBlockType = block.type;
       /**
        * current block is last
@@ -134,7 +142,9 @@ export const getBlocks = (blocks: BlockType[]) => {
       // 2. Empty the blockArray.
       blockArray = [];
       // 3. Push the current block to blockArray.
-      blockArray.push(<NotionBlockCore key={`${index}.2`} block={block} />);
+      blockArray.push(
+        <NotionBlockCore key={`${index}.2`} block={block} blocks={blocks} />
+      );
       // 4. Set the current blockType to the preBlockType.
       preBlockType = block.type;
 
@@ -163,7 +173,9 @@ export const getBlocks = (blocks: BlockType[]) => {
      * exception case
      */
     console.warn(`Exception case`, block);
-    components.push(<NotionBlockCore key={`${index}`} block={block} />);
+    components.push(
+      <NotionBlockCore key={`${index}`} block={block} blocks={blocks} />
+    );
   }
 
   return components;

@@ -60,3 +60,12 @@
 .nbr-block-table_of_contents a {
   @apply underline text-gray-600;
 }
+/* .nbr-block-table_of_contents-item-heading_1 {
+ 
+} */
+.nbr-block-table_of_contents-item-heading_2 {
+  @apply ml-2;
+}
+.nbr-block-table_of_contents-item-heading_3 {
+  @apply ml-4;
+}

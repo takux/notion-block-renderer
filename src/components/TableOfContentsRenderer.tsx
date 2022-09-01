@@ -1,8 +1,10 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { BlockType } from "../types/types";
+import { Context } from "../utils";
 import TextRenderer from "./TextRenderer";
 
 const TableOfContentsRenderer: FC<{ blocks: BlockType[] }> = ({ blocks }) => {
+  const { prefix, blockPrefix } = useContext(Context);
   return (
     <>
       {blocks.map((block: any) => {
@@ -12,7 +14,10 @@ const TableOfContentsRenderer: FC<{ blocks: BlockType[] }> = ({ blocks }) => {
           block.type === "heading_3"
         ) {
           return (
-            <div key={block.id}>
+            <div
+              key={block.id}
+              className={`${prefix}-${blockPrefix}-table_of_contents-item-${block.type}`}
+            >
               <a href={`#${block.id}`}>
                 {block[block.type].rich_text && (
                   <TextRenderer richTextArr={block[block.type].rich_text} />

@@ -37,8 +37,6 @@ yarn add notion-block-renderer
 
 ## Demo & Example
 
-- [Blog with Notion API and Next.js](https://www.rabbitriver.page/)
-
 - [Styled one-page exmale]()
 
 <br />

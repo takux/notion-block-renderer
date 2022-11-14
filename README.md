@@ -227,7 +227,7 @@ type BlocksProps = {
 
 ## About me
 
-* [Twitter](https://twitter.com/takuxone)
+* [Twitter](https://twitter.com/takumafujimoto)
 
 * [My Homepage](https://takux.one/)
 
